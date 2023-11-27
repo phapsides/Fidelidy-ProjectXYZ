@@ -1,0 +1,55 @@
+$button-shadow-depth: 4px;
+
+.bigRadioGroup {
+  text-align: center;
+  line-height: 0;
+  padding: 0; // should be part of a reset
+  margin: 0; // should be part of a reset
+}
+
+.bigRadio-wrap {
+  height: 116px; // visual, based on 3 lines of text max
+  width: 100%; //responsive with no media queries
+}
+
+.bigRadio {
+  display: table !important;
+  height: 100%;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 0.8em;
+  font-size: 18px; // Should be a global type style
+  line-height: 22px; // may be specific to buttons, other use would be too tight
+  text-align: center;
+  border-style: solid;
+  border-width: 1px 1px 4px 1px; //should be somwhere else
+  border-color: $blue-mid;
+  // font-family: $neuzeit-regular;
+  background-color: $grey-3;
+  color: $grey-85;
+  transition: background-color 0.2s ease;
+}
+.bigRadio:hover {
+  background-color:$blue-tint;
+  color: $blue-mid;
+  cursor: pointer;
+}
+input[type=radio]:checked + .bigRadio {
+  background-color: $blue-mid;
+  color: $fidelity-white;
+}
+
+.bigRadio-text {
+  display: table-cell !important;
+  vertical-align: middle !important;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  color: inherit;
+  padding-top: 4px;
+}
+.bigRadio-text [class^="icon-"] {
+    display: block;
+    font-size: 34px; // icon sizing should be defined globaly
+    margin-bottom: $a-spacer-4;
+}

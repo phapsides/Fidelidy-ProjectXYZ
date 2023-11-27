@@ -1,0 +1,25 @@
+{
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-connect": "^5.0.0",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-nunjucks-render": "^2.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.9",
+    "motion-ui": "^1.2.2",
+    "node-sass": "^3.7.0",
+    "pump": "^1.0.1"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.0"
+  }
+}

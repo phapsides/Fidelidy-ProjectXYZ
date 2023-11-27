@@ -1,0 +1,14 @@
+<!-- feature item -->
+<div class="small-12 medium-4 columns">
+	<section class="invest-advice-item bottom-spacer">
+		<div class="invest-advice-content-container" data-equalizer-watch>
+			<h5 class="text-center text-grey60 eq-spacer">{{nudge-item.title}}</h5>
+			<p class="text-center text-grey60">
+				{{nudge-item.paragraph}}
+				<!--(bake-start _if=nudge-item.link)-->
+				<a href="{{nudge-item.link.target}}" class="text-blue3">{{nudge-item.link.text}}</a>
+				<!--(bake-end)-->
+			</p>
+		</div>
+	</section>
+</div>

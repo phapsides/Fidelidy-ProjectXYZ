@@ -1,0 +1,119 @@
+// layout, margins, paddings of boxes
+// quicking chainging big layouts groups of molecules or organisims
+
+///////////////////////////
+// Rythmic spacing here
+///////////////////////////
+$rhythm-base: 24px;
+
+.rhythmic-xxs {
+  padding-top: $rhythm-base * 0.16666666666;
+  padding-bottom: $rhythm-base * 0.16666666666; //4
+}
+
+.rhythmic-xs {
+  padding-top: $rhythm-base * 0.5;
+  padding-bottom: $rhythm-base * 0.5; //12
+}
+
+.rhythmic-s {
+  padding-top: $rhythm-base * 0.75;
+  padding-bottom: $rhythm-base * 0.75; //18
+}
+
+.rhythmic {
+  padding-top: $rhythm-base;
+  padding-bottom: $rhythm-base; //24
+}
+
+.rhythmic-l {
+  padding-top: $rhythm-base * 1.16666666666; //28
+  padding-bottom: $rhythm-base * 1.16666666666; 
+}
+
+.rhythmic-xl {
+  padding-top: $rhythm-base * 1.5; // 36
+  padding-bottom: $rhythm-base * 1.5;
+}
+
+.rhythmic-xxl {
+  padding-top: $rhythm-base * 2; //48
+  padding-bottom: $rhythm-base * 2;
+}
+
+.rhythmic-xxxl {
+  padding-top: $rhythm-base * 2;
+  padding-bottom: $rhythm-base * 2;
+}
+
+@for $i from 0 through 5 {
+
+    .rhythm-m-#{$i} { margin-bottom: $i * $rhythm-base }
+    .rhythm-m-#{$i}-half { margin-bottom: ( $i + 0.5 ) * $rhythm-base }
+
+    .rhythm-m-#{$i}--top { margin-top: $i * $rhythm-base }
+    .rhythm-m-#{$i}-half--top { margin-top: ( $i + 0.5 ) * $rhythm-base }
+
+    .rhythm-p-#{$i} {  padding-bottom: $i * $rhythm-base }
+    .rhythm-p-#{$i}-half { padding-bottom: ( $i + 0.5 ) * $rhythm-base }
+
+    .rhythm-p-#{$i}--top {  padding-top: $i * $rhythm-base }
+    .rhythm-p-#{$i}-half--top { padding-top: ( $i + 0.5 ) * $rhythm-base }
+
+}
+
+///////////////////////////
+// Gutter spacing here
+///////////////////////////
+
+.gutted-xxs {
+    padding-right: $rhythm-base * 0.16666666666;
+    padding-left: $rhythm-base * 0.16666666666;
+}
+
+.gutted-xs {
+    padding-right: $rhythm-base * 0.5;
+    padding-left: $rhythm-base * 0.5;
+}
+
+.gutted-s {
+    padding-right: $rhythm-base * 0.75;
+    padding-left: $rhythm-base * 0.75;
+}
+
+.gutted {
+    padding-right: $rhythm-base;
+    padding-left: $rhythm-base;
+}
+
+.gutted-l {
+    padding-right: $rhythm-base * 1.16666666666;
+    padding-left: $rhythm-base * 1.16666666666;
+}
+
+.gutted-xl {
+    padding-right: $rhythm-base * 1.5;
+    padding-left: $rhythm-base * 1.5;
+}
+
+.gutted-xxl {
+    padding-right: $rhythm-base * 2;
+    padding-left: $rhythm-base * 2;
+}
+
+
+// ATOMIC SPACERS
+// If you need another one ask your local designer
+// granular atomic, between tiny bits
+// stops "whatever" spacing
+
+$a-spacer-4: 	 4px ;
+$a-spacer-8: 	 8px ;
+$a-spacer-12: 	12px ;
+$a-spacer-16: 	16px ;
+$a-spacer-20: 	20px ;
+$a-spacer-24: 	24px ;
+$a-spacer-32: 	32px ;
+$a-spacer-48: 	48px ;
+$a-spacer-64: 	64px ;
+$a-spacer-128: 128px ;

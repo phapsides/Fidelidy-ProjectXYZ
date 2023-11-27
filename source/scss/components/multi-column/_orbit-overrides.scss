@@ -1,0 +1,49 @@
+// hide rendered HTML 
+.orbit-prev,
+.orbit-next,
+.orbit-timer,
+.orbit-slide-number {
+	display: none;
+}
+
+// style to override styles applied to rendered HTML
+.orbit-container {
+    padding: 0;
+    @media #{$medium-up} {
+        padding: 20px 0;    
+    }
+	.orbit-slides-container {
+		> *	{
+			position: absolute;
+			width: 100%;
+			@media #{$medium-up} {
+				position: relative;
+				width: 33.3333%;
+			}
+		}
+		li {
+			@media #{$medium-up} { 
+        		margin-left: 0 !important;
+    		}
+		}
+	}
+} 
+.orbit-slides-container {
+	position: absolute;
+	@media #{$medium-up} { 
+    	position: relative;
+	}
+}
+.orbit-bullets-container {
+    display: block;
+    @media #{$medium-up} { 
+        display: none;
+    }
+    .orbit-bullets {
+        display: block;
+        margin: 37px 0;
+        @media #{$medium-up} { 
+            display: none;
+        }
+    }
+}

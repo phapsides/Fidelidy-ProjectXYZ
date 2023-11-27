@@ -1,0 +1,39 @@
+
+// Nav Container
+.site-nav-wrapper {
+	// position value used for new design
+	position: relative;
+
+	border-bottom: 1px solid $grey15;
+	left: 0;
+    top: 0;
+    transition: background 0.3s ease 0s, top 0.3s ease 0s;
+    width: 100%;
+    z-index: 3;
+    .topNav {
+        height: 30px;
+        padding: 0 20px;
+        position: relative;
+        width: 100%;
+        @media all and (max-width: 960px) {
+            display: none;
+        }
+    }
+    .navMain {
+        height: 79px;
+        padding: 0 20px;
+        position: relative;
+        width: 100%;
+        z-index: 2010;
+        @media #{$small-only} {
+            height: 50px;
+            padding: 0;
+        }
+        .right {
+            @media #{$small-only} {
+                float: none !important;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,168 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose readDependencies loading dependencies from /Users/a592687/flatsite/package.json
+5 warn package.json @ No description
+6 warn package.json @ No repository field.
+7 warn package.json @ No README data
+8 warn package.json @ No license field.
+9 verbose install where, deps [ '/Users/a592687/flatsite',
+9 verbose install   [ 'gulp-concat',
+9 verbose install     'gulp',
+9 verbose install     'gulp-autoprefixer',
+9 verbose install     'gulp-clean',
+9 verbose install     'gulp-clean-css',
+9 verbose install     'gulp-connect',
+9 verbose install     'gulp-imagemin',
+9 verbose install     'gulp-modernizr',
+9 verbose install     'gulp-nunjucks-render',
+9 verbose install     'gulp-sass',
+9 verbose install     'gulp-sourcemaps',
+9 verbose install     'gulp-uglify',
+9 verbose install     'gulp-watch',
+9 verbose install     'motion-ui',
+9 verbose install     'node-sass',
+9 verbose install     'pump' ] ]
+10 verbose install where, peers [ '/Users/a592687/flatsite', [] ]
+11 verbose installManyTop reading for lifecycle /Users/a592687/flatsite/package.json
+12 info preinstall @
+13 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/autoprefixer/package.json
+14 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt/package.json
+15 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-bake/package.json
+16 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-contrib-clean/package.json
+17 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-contrib-concat/package.json
+18 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-contrib-connect/package.json
+19 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-contrib-jshint/package.json
+20 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-contrib-qunit/package.json
+21 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-contrib-uglify/package.json
+22 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-contrib-watch/package.json
+23 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-includes/package.json
+24 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-json-bake/package.json
+25 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-postcss/package.json
+26 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/grunt-sass/package.json
+27 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp/package.json
+28 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-autoprefixer/package.json
+29 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-clean/package.json
+30 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-clean-css/package.json
+31 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-concat/package.json
+32 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-connect/package.json
+33 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-imagemin/package.json
+34 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-modernizr/package.json
+35 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-nunjucks-render/package.json
+36 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-sass/package.json
+37 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-sourcemaps/package.json
+38 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-uglify/package.json
+39 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/gulp-watch/package.json
+40 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/node-sass/package.json
+41 verbose installManyTop reading scoped package data from /Users/a592687/flatsite/node_modules/pump/package.json
+42 info package.json grunt-bake@1.7.2 No license field.
+43 info package.json grunt-json-bake@0.2.9 No license field.
+44 info package.json gulp-clean-css@2.0.12 No README data
+45 info package.json grunt@0.4.5 No license field.
+46 info package.json grunt-contrib-concat@0.4.0 No license field.
+47 info package.json grunt-contrib-jshint@0.10.0 No license field.
+48 info package.json grunt-contrib-uglify@0.5.1 No license field.
+49 info package.json grunt-contrib-qunit@0.5.2 No license field.
+50 info package.json grunt-contrib-watch@0.6.1 No license field.
+51 info package.json grunt-includes@0.5.4 No license field.
+52 verbose readDependencies loading dependencies from /Users/a592687/flatsite/package.json
+53 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/autoprefixer/package.json
+54 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt/package.json
+55 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-bake/package.json
+56 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-contrib-clean/package.json
+57 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-contrib-concat/package.json
+58 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-contrib-connect/package.json
+59 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-contrib-jshint/package.json
+60 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-contrib-qunit/package.json
+61 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-contrib-uglify/package.json
+62 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-contrib-watch/package.json
+63 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-includes/package.json
+64 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-json-bake/package.json
+65 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-postcss/package.json
+66 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/grunt-sass/package.json
+67 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp/package.json
+68 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-autoprefixer/package.json
+69 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-clean/package.json
+70 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-clean-css/package.json
+71 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-concat/package.json
+72 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-connect/package.json
+73 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-imagemin/package.json
+74 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-modernizr/package.json
+75 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-nunjucks-render/package.json
+76 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-sass/package.json
+77 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-sourcemaps/package.json
+78 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-uglify/package.json
+79 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/gulp-watch/package.json
+80 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/node-sass/package.json
+81 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/pump/package.json
+82 verbose targetResolver reading package data from /Users/a592687/flatsite/node_modules/.bin/gulp/package.json
+83 verbose already installed skipping gulp-watch@^4.3.9 /Users/a592687/flatsite
+84 silly cache add args [ 'motion-ui@^1.2.2', null ]
+85 verbose cache add spec motion-ui@^1.2.2
+86 silly cache add parsed spec Result {
+86 silly cache add   raw: 'motion-ui@^1.2.2',
+86 silly cache add   scope: null,
+86 silly cache add   name: 'motion-ui',
+86 silly cache add   rawSpec: '^1.2.2',
+86 silly cache add   spec: '>=1.2.2 <2.0.0',
+86 silly cache add   type: 'range' }
+87 silly addNamed motion-ui@>=1.2.2 <2.0.0
+88 verbose addNamed ">=1.2.2 <2.0.0" is a valid semver range for motion-ui
+89 silly addNameRange { name: 'motion-ui', range: '>=1.2.2 <2.0.0', hasData: false }
+90 silly mapToRegistry name motion-ui
+91 silly mapToRegistry using default registry
+92 silly mapToRegistry registry https://registry.npmjs.org/
+93 silly mapToRegistry data Result {
+93 silly mapToRegistry   raw: 'motion-ui',
+93 silly mapToRegistry   scope: null,
+93 silly mapToRegistry   name: 'motion-ui',
+93 silly mapToRegistry   rawSpec: '',
+93 silly mapToRegistry   spec: 'latest',
+93 silly mapToRegistry   type: 'tag' }
+94 silly mapToRegistry uri https://registry.npmjs.org/motion-ui
+95 verbose addNameRange registry:https://registry.npmjs.org/motion-ui not in flight; fetching
+96 verbose already installed skipping node-sass@^3.7.0 /Users/a592687/flatsite
+97 verbose already installed skipping pump@^1.0.1 /Users/a592687/flatsite
+98 verbose already installed skipping gulp-concat@^2.6.0 /Users/a592687/flatsite
+99 verbose already installed skipping gulp@^3.9.1 /Users/a592687/flatsite
+100 verbose already installed skipping gulp-autoprefixer@^3.1.0 /Users/a592687/flatsite
+101 verbose already installed skipping gulp-clean@^0.3.2 /Users/a592687/flatsite
+102 verbose request uri https://registry.npmjs.org/motion-ui
+103 verbose request no auth needed
+104 info attempt registry request try #1 at 5:01:14 PM
+105 verbose request id 77cd292ea5169220
+106 http request GET https://registry.npmjs.org/motion-ui
+107 verbose already installed skipping gulp-clean-css@^2.0.12 /Users/a592687/flatsite
+108 verbose already installed skipping gulp-connect@^5.0.0 /Users/a592687/flatsite
+109 verbose already installed skipping gulp-imagemin@^3.0.3 /Users/a592687/flatsite
+110 verbose already installed skipping gulp-modernizr@^1.0.0-alpha /Users/a592687/flatsite
+111 verbose already installed skipping gulp-nunjucks-render@^2.0.0 /Users/a592687/flatsite
+112 verbose already installed skipping gulp-sass@^2.3.2 /Users/a592687/flatsite
+113 verbose already installed skipping gulp-sourcemaps@^1.6.0 /Users/a592687/flatsite
+114 verbose already installed skipping gulp-uglify@^2.0.0 /Users/a592687/flatsite
+115 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+116 info attempt registry request try #2 at 5:01:24 PM
+117 http request GET https://registry.npmjs.org/motion-ui
+118 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+119 info attempt registry request try #3 at 5:02:24 PM
+120 http request GET https://registry.npmjs.org/motion-ui
+121 verbose stack Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+121 verbose stack     at errnoException (dns.js:27:10)
+121 verbose stack     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:78:26)
+122 verbose cwd /Users/a592687/flatsite
+123 error Darwin 15.6.0
+124 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+125 error node v4.4.7
+126 error npm  v2.15.8
+127 error code ENOTFOUND
+128 error errno ENOTFOUND
+129 error syscall getaddrinfo
+130 error network getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+130 error network This is most likely not a problem with npm itself
+130 error network and is related to network connectivity.
+130 error network In most cases you are behind a proxy or have bad network settings.
+130 error network
+130 error network If you are behind a proxy, please make sure that the
+130 error network 'proxy' config is set properly.  See: 'npm help config'
+131 verbose exit [ 1, true ]

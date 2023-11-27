@@ -1,0 +1,64 @@
+
+
+<section class="site-module-product-hero component-wrapper {{config.backgroundClass}} clearfix">
+
+	<div class="row clearfix" data-equalizer>
+		<div class="small-12 medium-6 columns top-spacer bottom-spacer" data-equalizer-watch>
+
+			<!--(bake-start _if="config.hasTitle == 'true'" )-->
+			<h1 class="grey85">{{components.hero-component.title}}</h1>
+			<!--(bake-end)-->
+
+			<!--(bake-start _if="config.hasSubtitle == 'true'" )-->
+			<h5 class="grey85">{{components.hero-component.subtitle}}</h5>
+			<!--(bake-end)-->
+
+			<!--(bake-start _if="config.hasParagraph == 'true'" )-->
+				<!--(bake-start _foreach="paragraph:paragraphs" )-->
+			<!-- <p class="text-left ">{{components.hero-component.paragraphs}}</p> -->
+				<!--(bake-end)-->
+			<!--(bake-end)-->
+
+			<!--(bake-start _if="config.hasTextLink == 'true'" )-->
+			<!-- <div class="row bottom-spacer">
+				<div class="small-12 columns">
+					<a href="{{textLink.target}}" class="text-link">{{textLink.text}}</a>
+				</div>
+			</div> -->
+			<!--(bake-end)-->
+
+			<!--(bake-start _if="config.hasLinks == 'true'" )-->
+			<!-- <div class="row bottom-spacer">
+				<div class="small-12 columns"> -->
+				<!--(bake-start _foreach="link:links" )-->
+
+					<!-- 
+						<button type="button" class="standard-button">
+							<a href="{{link.target}}">{{link.text}}</a>
+						</button> 
+					-->
+
+				<!--(bake-end)-->
+				<!-- </div>
+			</div> <!-- CLOSE: inset row -->
+			<!--(bake-end)-->
+
+			<!--(bake-start _if="config.hasDisclaimer == 'true'" )-->
+			<!-- <p class="panel simple-panel">{{disclaimer}}</p> -->
+			<!--(bake-end)-->
+		</div>
+
+		<!--(bake-start _if="config.hasVideo == 'true'" )-->
+		<div class="small-12 medium-3 medium-pull-1 columns top-spacer bottom-spacer" data-equalizer-watch>
+
+			<!-- <div class="video-wrapper video-wrapper--placeholder">
+				<span class="video-wrapper__play-button">&#9654;</span>
+			</div> -->
+
+		</div>
+		<!--(bake-end)-->
+
+	</div>
+
+
+</section> <!-- CLOSE: site-module-product-hero -->

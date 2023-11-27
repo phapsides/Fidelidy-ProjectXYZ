@@ -1,0 +1,13 @@
+{% from "macros/heros.html" import heroImage %}
+
+{% extends "layouts/main.html" %}
+
+{% block title %}
+<title>Hero Image</title>
+{% endblock %}
+
+{% block mainContent %}
+
+{{ heroImage( 'ETFs - Exchanged traded funds' ) }}
+
+{% endblock %}

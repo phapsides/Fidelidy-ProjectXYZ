@@ -1,0 +1,100 @@
+.input {
+	box-shadow: none;
+}
+
+	input.input--error {
+		border-color: $red1;
+	}
+
+.select {
+
+}
+.checkboxes{
+
+
+}
+
+fieldset {
+  border:none;
+  padding: 0;
+  margin: 0;
+}
+input[type=radio] {
+  display: none; }
+
+
+.radio-dots {
+
+}
+
+
+.checkbox-group {
+  // margin-bottom: 24px;
+}
+input[type=checkbox] {
+    display: none;
+
+}
+
+.custom-check,
+.custom-radio {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: $a-spacer-32; //Whitespace + box width
+  // margin-left: 0 !important; // conflicts with foundation style
+  // margin-right: 0 !important; // conflicts with foundation style
+  &:before {
+    content: "";
+    display: inline-block;
+    width: $a-spacer-20;
+    height: $a-spacer-20;
+    position: absolute;
+    left: 0;
+    bottom: 3px; // visualy position checkbox
+    border: 1px solid $grey-25;
+    background: transparent;
+    transition: border-color 0.25s ;
+    }
+  &:after {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.25s;
+    overflow: hidden;
+    }
+}
+
+.custom-check {
+  &:after {
+    font-family: 'fidelity-icon-font';
+    @extend .icon-small;
+    left: -2px; // visualy position the tick icon
+    top: -8px; // visualy position the tick icon
+    content: $icon-tick;
+    color: $fidelity-blue;
+    }
+}
+.custom-radio {
+  &:before {
+    border-radius: 999px;
+  }
+  &:after {
+    height: $a-spacer-12;
+    width: $a-spacer-12;
+    border-radius: 999px;
+    left: 4px; // visualy position the tick icon
+    top: 6px; // visualy position the tick icon
+    content: "";
+    background: $fidelity-blue;
+    }
+}
+
+
+input[type=radio]:checked + .custom-radio:before,
+input[type=checkbox]:checked + .custom-check:before {
+    border-color: $fidelity-blue;
+}
+input[type=radio]:checked + .custom-radio:after,
+input[type=checkbox]:checked + .custom-check:after {
+    opacity: 1;
+}

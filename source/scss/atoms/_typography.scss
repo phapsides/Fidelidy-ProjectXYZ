@@ -1,0 +1,198 @@
+/**
+* Font resets
+*/
+h1, h2, h3, h4, h5, h6,
+pre, form, blockquote, div,
+th, td {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+/**
+ * Brand Fonts
+ */
+@font-face {
+    font-family: 'neuzeit_grotesk';
+    src: url('#{$fontsPath}light/neuzeitgro-lig.eot');
+    src: url('#{$fontsPath}light/neuzeitgro-lig.eot?#iefix') format('embedded-opentype'),
+        url('#{$fontsPath}light/neuzeitgro-lig.woff2') format('woff2'),
+        url('#{$fontsPath}light/neuzeitgro-lig.woff') format('woff'),
+        url('#{$fontsPath}light/neuzeitgro-lig.ttf') format('truetype'),
+        url('#{$fontsPath}light/neuzeitgro-lig.svg#neuzeit_grotesklight') format('svg');
+    font-weight: 200; // Light
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'neuzeit_grotesk';
+    src: url('#{$fontsPath}regular/neuzeitgro-reg.eot');
+    src: url('#{$fontsPath}regular/neuzeitgro-reg.eot?#iefix') format('embedded-opentype'),
+        url('#{$fontsPath}regular/neuzeitgro-reg.woff2') format('woff2'),
+        url('#{$fontsPath}regular/neuzeitgro-reg.woff') format('woff'),
+        url('#{$fontsPath}regular/neuzeitgro-reg.ttf') format('truetype'),
+        url('#{$fontsPath}regular/neuzeitgro-reg.svg#neuzeit_groteskregular') format('svg');
+    font-weight: normal; // Regular
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'neuzeit_grotesk';
+    src: url('#{$fontsPath}bold/neuzeitgro-bol.eot');
+    src: url('#{$fontsPath}bold/neuzeitgro-bol.eot?#iefix') format('embedded-opentype'),
+        url('#{$fontsPath}bold/neuzeitgro-bol.woff2') format('woff2'),
+        url('#{$fontsPath}bold/neuzeitgro-bol.woff') format('woff'),
+        url('#{$fontsPath}bold/neuzeitgro-bol.ttf') format('truetype'),
+        url('#{$fontsPath}bold/neuzeitgro-bol.svg#neuzeit_groteskbold') format('svg');
+    font-weight: bold; // Bold
+    font-style: normal;
+}
+
+
+
+$primary-font: 'neuzeit_grotesk';
+$arial: Arial, Helvetica, sans-serif;
+
+
+
+
+
+/**
+ * Font sizes array
+ */
+$header-sizes-custom: (
+    small: (
+        'h1': ( 54, 60, '300' ),
+        'h2': ( 48, 58, '300' ),
+        'h3': ( 32, 40, '300' ),
+        'h4': ( 26, 36, 'normal' ),
+        'h5': ( 18, 28, 'normal' ),
+        'h6': ( 18, 28, 'bold' )
+    ),
+    medium: (
+        'h1': ( 70, 74, '300' ),
+        'h2': ( 48, 58, '300' ),
+        'h3': ( 32, 40, '300' ),
+        'h4': ( 26, 36, 'normal' ),
+        'h5': ( 18, 28, 'normal' ),
+        'h6': ( 18, 28, 'bold' )
+    )
+);
+
+
+@each $size, $headers in $header-sizes-custom {
+
+    @include breakpoint( $size ) {
+
+        @each $header, $head-spec in $headers {
+
+            $font-size: nth( $head-spec, 1 );
+            $line-height: nth( $head-spec, 2 );
+            $font-weight: nth( $head-spec, 3 );
+
+            #{ $header }, .#{ $header } {
+                font-family: $primary-font;
+                font-size: rem-calc( $font-size );
+                line-height: rem-calc( $line-height );
+                font-weight: #{ $font-weight };
+            }
+
+        } // End @each
+
+    } // End @include
+
+} // End @each
+
+
+
+
+
+/**
+ * Font helpers
+ */
+.font-weight-normal {
+    font-weight: normal;
+}
+.font-weight-light {
+    font-weight: 300;
+}
+.font-weight-bold {
+    font-weight: bold; // Use <strong> where possible
+}
+
+
+
+
+
+/**
+ * Font styles
+ */
+.intro {
+    p {
+        @extend .h4;
+        color: $grey-85;
+        line-height: rem-calc(40);
+    }
+}
+
+// small text used for disclaimers and navigation hints
+.small {
+    font-family: $arial;
+    font-size: rem-calc(14);
+    line-height: rem-calc(22);
+    color: $grey-60;
+}
+
+
+// .disclaimers {
+//   p {
+//   @extend .small; // Too small! must be same size as body
+//   }
+// }
+
+
+.value {
+    font-weight: 300;
+    margin-top: 24px;
+    height: 48px;
+    display: inline-block;
+
+    .intergers {
+        font-size: 48px; // should extend a headding
+        line-height: 0;
+
+        .fractions {
+            font-size: 18px; // should extend a headding
+        }
+    }
+}
+
+.value.small {
+    .intergers {
+        font-size: 32px; // should extend a heading
+    }
+}
+
+.value.positive {
+    color: $green-mid;
+}
+
+.number-badge {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background: $blue-light;
+    color: $white;
+    display: inline-block;
+    border-radius: 100%;
+}
+
+.number-badge--dotted {
+    background-color: transparent;
+    border: 2px dashed $grey-15;
+    color: $grey-15;
+}

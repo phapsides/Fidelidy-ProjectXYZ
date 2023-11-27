@@ -1,0 +1,128 @@
+/************ Display layers (z-index) ************/
+
+
+/**************************************/
+/************ Color scheme ************/
+/**************************************/
+
+/* gradients */
+@mixin bg-soft-grey-gradient {
+	background: -moz-linear-gradient(top,  rgba(247,247,247,0) 0%, rgba(247,247,247,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,247,247,0)), color-stop(100%,rgba(247,247,247,1)));
+	background: -webkit-linear-gradient(top,  rgba(247,247,247,0) 0%,rgba(247,247,247,1) 100%);
+	background: -o-linear-gradient(top,  rgba(247,247,247,0) 0%,rgba(247,247,247,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(247,247,247,0) 0%,rgba(247,247,247,1) 100%);
+	background: linear-gradient(to bottom,  rgba(247,247,247,0) 0%,rgba(247,247,247,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f7f7f7', endColorstr='#f7f7f7',GradientType=0 );
+}
+
+
+/*********************************/
+/*********** UTILITIES ***********/
+/*********************************/
+
+// paths
+// MOVED TO foundation settings
+// $imgPath 		: "../images/";
+// $fontsPath  	: "../fonts/NeuzeitGro/";
+// $iconFontsPath  : "../fonts/icon-font/";
+
+
+$top-bar-height: 		80px;
+$top-bar-height-mobile: 51px;
+$top-title-bar-height: 	50px;
+
+
+
+// Fidelity colours
+// edit colors in foundation/_settings.scss
+// Below as a reference
+
+// $white: 		#ffffff;
+// $grey85: 	#262626;
+// $grey60: 	#666666;
+// $grey25: 	#bfbfbf;
+// $grey15: 	#d9d9d9;
+// $grey3: 		#f7f7f7;
+// $orange1: 	#f26730;
+// $orange2: 	#e57725;
+// $orange3: 	#ff8d31;
+// $blue1: 		#006193;
+// $blue2: 		#016FAD;
+// $blue3: 		#00a6e0;
+// $blue4: 		#eaf2f6;
+// $green1: 	#339900;
+// $green2: 	#91cc9b;
+$red1: 		#cc3333;
+// $red2: 		#e8989b;
+// $purple1: 	#7f05a2;
+
+
+// // Colours array
+$fidelity-colours: (
+	white   : $white,
+	grey85  : $grey85,
+	grey60  : $grey60,
+	grey25  : $grey25,
+	grey15  : $grey15,
+	grey3  	: $grey3,
+	orange1 : $orange1,
+	orange2 : $orange2,
+	orange3 : $orange3,
+	blue1   : $blue1,
+	blue2   : $blue2,
+	blue3   : $blue3,
+	blue4   : $blue4,
+	green1  : $green1,
+	green2  : $green2,
+	red1    : $red1,
+	red2    : $red2
+);
+
+
+
+// Darkened colours array
+// $fidelity-colours-darkened: (
+// 	"white"   : darken( $white, 5% ),
+// 	"grey85"  : darken( $grey85, 5% ),
+// 	"grey60"  : darken( $grey60, 5% ),
+// 	"grey25"  : darken( $grey25, 5% ),
+// 	"grey15"  : darken( $grey15, 5% ),
+// 	"grey03"  : darken( $grey03, 5% ),
+// 	"orange1" : darken( $orange1, 5% ),
+// 	"orange2" : darken( $orange2, 5% ),
+// 	"orange3" : darken( $orange3, 5% ),
+// 	"blue1"   : darken( $blue1, 5% ),
+// 	"blue2"   : darken( $blue2, 5% ),
+// 	"blue3"   : darken( $blue3, 5% ),
+// 	"blue4"   : darken( $blue4, 5% ),
+// 	"green1"  : darken( $green1, 5% ),
+// 	"green2"  : darken( $green2, 5% ),
+// 	"red1"    : darken( $red1, 5% ),
+// 	"red2"    : darken( $red2, 5% )
+// );
+
+// Lightened colours array
+// $fidelity-colours-ligthened: (
+// 	"white"   : lighten( $white, 10% ),
+// 	"grey85"  : lighten( $grey85, 10% ),
+// 	"grey60"  : lighten( $grey60, 10% ),
+// 	"grey25"  : lighten( $grey25, 10% ),
+// 	"grey15"  : lighten( $grey15, 10% ),
+// 	"grey03"  : lighten( $grey03, 10% ),
+// 	"orange1" : lighten( $orange1, 10% ),
+// 	"orange2" : lighten( $orange2, 10% ),
+// 	"orange3" : lighten( $orange3, 10% ),
+// 	"blue1"   : lighten( $blue1, 10% ),
+// 	"blue2"   : lighten( $blue2, 10% ),
+// 	"blue3"   : lighten( $blue3, 10% ),
+// 	"blue4"   : lighten( $blue4, 10% ),
+// 	"green1"  : lighten( $green1, 10% ),
+// 	"green2"  : lighten( $green2, 10% ),
+// 	"red1"    : lighten( $red1, 10% ),
+// 	"red2"    : lighten( $red2, 10% )
+// );
+
+.bg-soft-grey-gradient {
+	@include bg-soft-grey-gradient;
+}

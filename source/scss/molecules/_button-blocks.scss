@@ -1,0 +1,50 @@
+.site-module_links,
+.btn-block {	
+	position: relative;
+	.btn {
+		margin: $a-spacer-8 0;
+	}
+
+	@media #{$medium-up} {
+		.btn {
+			margin: $a-spacer-12 $a-spacer-8;	
+		}
+	}
+}
+
+
+.btn-block-confirm {
+	@extend .btn-block;
+	@media #{$medium-up} {
+		
+		.btn {
+			float: right;
+		}
+		.btn-link {
+			padding: $a-spacer-8 $a-spacer-24;
+				&:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: -$a-spacer-8;
+				height: 100%;
+				width: 1px;
+				background: $grey-25;
+			}
+		}
+		.btn-cta + .btn-link:after,
+		.btn-secondary + .btn-link:after {
+		 	display: none;
+		}
+	}
+}
+
+
+
+.btn-block-center {	@media #{$medium-up} {
+		text-align: center;
+		.btn {
+			margin: $a-spacer-12 $a-spacer-8;
+		}
+	}
+}

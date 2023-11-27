@@ -1,0 +1,13 @@
+
+.site-module_container_wrapper {
+	.site-module_container {
+		&:last-of-type {
+			display: none;
+		}		
+		.toggle-trigger {
+			.display:last-of-type {
+				display: none;
+			}
+		}
+	}
+}

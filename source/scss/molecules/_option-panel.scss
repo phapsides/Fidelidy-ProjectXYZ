@@ -1,0 +1,39 @@
+// Large option panel
+// - Used on Pathfinder page
+
+.option-panel {
+    position: relative;
+
+    &.is-active {
+        border-color: $blue1;
+        background-color: $blue1;
+        color: $white;
+
+        &:after {
+            @include css-triangle(15px, $blue1, down);
+            position: absolute;
+            top: 100%; left: 0; right: 0;
+            margin: auto;
+        }
+
+        h2 {
+            color: $white;
+        }
+
+        // Move this to a generic button class if used more than once.
+        .btn {
+            background: $white;
+            color: $body-font-color;
+            &:hover {
+                background: $grey3;
+                color: $body-font-color;
+            }
+            &:focus {
+                background: $grey3;
+                color: $body-font-color;
+            }
+        }
+
+    }
+
+}

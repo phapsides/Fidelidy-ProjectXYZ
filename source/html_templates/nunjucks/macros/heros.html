@@ -1,0 +1,37 @@
+{% macro heroImage( title ) %}
+<section class="hero-image">
+    <div class="row">
+        <div class="small-centered large-8 medium-10 small-12 columns">
+            <div class="text-center bg-white title">
+                <h1>{{ title }}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+{% endmacro %}
+
+
+{% macro heroNoImage( title ) %}
+<section class="hero-noImage">
+    <div class="row">
+        <div class="small-centered large-8 medium-10 small-12 columns">
+            <div class="text-center bg-white title">
+                <h1>{{ title }}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+{% endmacro %}
+
+{% macro hero1( title, subtitle ) %}
+<div class="js-dev-element">
+    <section class="full-width top-spacer bottom-spacer bg-grey3">
+        <div class="row">
+            <div class="small-12 columns text-center">
+                <h1>H1 Title</h1>
+                <h2>H2 Subtitle</h2>
+            </div>
+        </div>
+    </section>
+</div>
+{% endmacro %}

@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block title %}
+<title>Pathfinder form</title>
+{% endblock %}
+
+{% block mainContent %}
+<section class="site-module_container">
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="site-module_title  rhythm-m-4">
+                <h2>Pathfinder Component</h2>
+            </div>
+
+            <h3 class="h2 rhythm-m-2 text-center">What are you saving for?</h3>
+
+            <div class="rhythm-m-1">
+                <div class="row">
+                    <div class="large-2 small-6 column">
+                        <div class="bigRadio-wrap rhythm-m-1">
+                            <input type="radio" name="pathfinder-saving-type" value="house" id="choose-house">
+                            <label class="bigRadio pathfinder-choice-trigger" for="choose-house">
+                                <span class="bigRadio-text">A house</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="large-2 small-6 column">
+                        <div class="bigRadio-wrap rhythm-m-1">
+                            <input type="radio" name="pathfinder-saving-type" value="retirement" id="choose-retirment"><label class="bigRadio pathfinder-choice-trigger" for="choose-retirment"><span class="bigRadio-text">Retirement</span></label>
+                        </div>
+                    </div>
+                    <div class="large-2 small-6 column">
+                        <div class="bigRadio-wrap rhythm-m-1">
+                            <input type="radio" name="pathfinder-saving-type" value="car" id="choose-car"><label class="bigRadio pathfinder-choice-trigger" for="choose-car"><span class="bigRadio-text">A car</span></label>
+                        </div>
+                    </div>
+                    <div class="large-2 small-6 column">
+                        <div class="bigRadio-wrap rhythm-m-1">
+                            <input type="radio" name="pathfinder-saving-type" value="wedding" id="choose-wedding"><label class="bigRadio pathfinder-choice-trigger" for="choose-wedding"><span class="bigRadio-text">A wedding</span></label>
+                        </div>
+                    </div>
+                    <div class="large-2 small-6 column">
+                        <div class="bigRadio-wrap rhythm-m-1">
+                            <input type="radio" name="pathfinder-saving-type" value="family" id="choose-family"><label class="bigRadio pathfinder-choice-trigger" for="choose-family"><span class="bigRadio-text">A child's future</span></label>
+                        </div>
+                    </div>
+                    <div class="large-2 small-6 column">
+                        <div class="bigRadio-wrap rhythm-m-1">
+                            <input type="radio" name="pathfinder-saving-type" value="invest" id="choose-invest"><label class="bigRadio pathfinder-choice-trigger" for="choose-invest"><span class="bigRadio-text">Something else</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.large-12 -->
+    </div>
+    <div class="row">
+        {% include "partials/pathfinder/house-form.html" %}
+        {% include "partials/pathfinder/retirement-form.html" %}
+        {% include "partials/pathfinder/car-form.html" %}
+        {% include "partials/pathfinder/wedding-form.html" %}
+        {% include "partials/pathfinder/family-form.html" %}
+        {% include "partials/pathfinder/invest-form.html" %}
+    </div>
+</section>
+{% endblock %}

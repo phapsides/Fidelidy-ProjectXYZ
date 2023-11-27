@@ -1,0 +1,152 @@
+// toolkit site styling
+.toolkit-site-header {
+	h1 {
+		color: $grey25;
+	}
+	p {
+		color: $grey3;
+	}
+}
+
+.toolkit-primary-nav-container {
+	@extend %no-listStyle;
+	li {
+		display: inline-block;
+		margin: 0 1em;
+	}
+}
+
+///////////////
+///////////////
+///////////////
+// component-library.html styles
+
+.component-library {
+	list-style: none;
+	margin: 3rem auto;
+	padding: 0;
+	width: 320px;
+
+	-webkit-box-shadow: 0 0 5px $grey85;
+	   -moz-box-shadow: 0 0 5px $grey85;
+			box-shadow: 0 0 5px $grey85;
+	ul {
+		background: $white;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		-webkit-box-shadow: inset 0 2px 2px #b3b3b3;
+		   -moz-box-shadow: inset 0 2px 2px #b3b3b3;
+				box-shadow: inner 0 2px 2px #b3b3b3;
+		li {
+			border-bottom: 1px solid #ccc;
+			&:first-child {
+				padding-top: 6px;
+			}
+			&:last-child {
+				border: 0;
+				padding-bottom: 6px;
+			}
+		}
+	}
+	li {
+		// label:hover span {
+		// 	background: $grey60;
+		// }
+		input[type='checkbox']:checked ~ label {
+			background: $blue3; /* fallback colour */
+			border-bottom: 1px solid #878e98;
+			border-top: 1px solid #878e98;
+
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($blue3), to($blue2));
+			background: -webkit-linear-gradient(top, $blue3, $blue2);
+			background: -moz-linear-gradient(top, $blue3, $blue2);
+			background: -ms-linear-gradient(top, $blue3, $blue2);
+			background: -o-linear-gradient(top, $blue3, $blue2);
+		}
+		input[type='checkbox']:checked ~ label span {
+			background: #2173a1; /* fallback colour */
+			border-bottom: 1px solid #1b5f85;
+			border-top: 1px solid #1b5f85;
+
+			-webkit-box-shadow: inset 0 0 5px $grey85;
+			   -moz-box-shadow: inset 0 0 5px $grey85;
+					box-shadow: inner 0 0 5px $grey85;
+		}
+		input[type='checkbox']:checked ~ .options {
+			display: block;
+			height: auto;
+			max-height: 400px;
+			min-height: 40px;
+		}
+	}
+
+}
+
+.block {
+	input[type='checkbox'] {
+		display: none;
+	}
+	label {
+		background: $grey15; /* fallback colour */
+		border-bottom: 1px solid #878e98;
+		border-top: 1px solid #878e98;
+		color: $white;
+		display: block;
+		font-weight: bold;
+		letter-spacing: 0.09em;
+		margin-left: 0 !important;
+		padding: 12px;
+		width: inherit;
+
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($grey15), to($grey25));
+		background: -webkit-linear-gradient(top, $grey15, $grey25);
+		background: -moz-linear-gradient(top, $grey15, $grey25);
+		background: -ms-linear-gradient(top, $grey15, $grey25);
+		background: -o-linear-gradient(top, $grey15, $grey25);
+		&:hover {
+			background: #566f82; /* fallback colour */
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($grey25), to($grey60));
+			background: -webkit-linear-gradient(top, $grey25, $grey60);
+			background: -moz-linear-gradient(top, $grey25, $grey60);
+			background: -ms-linear-gradient(top, $grey25, $grey60);
+			background: -o-linear-gradient(top, $grey25, $grey60);
+		}
+	}
+	span {
+		background: #48515c;
+		border: 1px solid #3c434c;
+		border-bottom: 1px solid #707781;
+		display: inline;
+		float: right;
+		font-size: 10px;
+		padding: 4px 6px;
+		position:relative;
+
+		-moz-border-radius: 12px;
+			 border-radius: 12px;
+
+		-webkit-box-shadow: inset 0 0 10px $grey85;
+		   -moz-box-shadow: inset 0 0 10px $grey85;
+				box-shadow: inner 0 0 10px $grey85;
+	}
+}
+
+
+.options {
+	display: block;
+	height: 0;
+	overflow: hidden;
+	li {
+		a {
+			color: #999;
+			display: block;
+			padding: 6px 12px;
+			text-decoration: none;
+			&:hover {
+				color: $blue3;
+			}
+		}
+	}
+}

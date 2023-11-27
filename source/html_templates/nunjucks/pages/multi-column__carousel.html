@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block title %}
+<title>Multicolumn carousel</title>
+{% endblock %}
+
+{% block mainContent %}
+<section id="multi-column__carousel" class="site-module_container">
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="site-module_title text-center">
+                <h2>Why a Lifetime ISA?</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <ul class="owl-carousel" data-carousel-options='{"items": "3", "itemsDesktop" : [1199,3], "itemsDesktopSmall": [980,3], "itemsTablet": [768,1], "itemsTabletSmall": "false", "itemsMobile": [600,1] }'>
+                <li>
+                    <div data-equalizer-watch="" class="multi-column_item text-center">
+                        <span class="icon--select"></span>
+                        <span class="icon_shadow"></span>
+                        <div class="site-module_title">
+                            <h4>Get expert guidance</h4>
+                        </div>
+                        <div class="site-module_content">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                        <div class="site-module_links text-link">
+                            <a href="#" title="">Find out more</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div data-equalizer-watch="" class="multi-column_item text-center">
+                        <span class="icon--select"></span>
+                        <span class="icon_shadow"></span>
+                        <div class="site-module_title">
+                            <h4>Get expert guidance</h4>
+                        </div>
+                        <div class="site-module_content">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                        <div class="site-module_links text-link">
+                            <a href="#" title="">Find out more</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div data-equalizer-watch="" class="multi-column_item text-center">
+                        <span class="icon--select"></span>
+                        <span class="icon_shadow"></span>
+                        <div class="site-module_title">
+                            <h4>Get expert guidance</h4>
+                        </div>
+                        <div class="site-module_content">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                        <div class="site-module_links text-link">
+                            <a href="#" title="">Find out more</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}
