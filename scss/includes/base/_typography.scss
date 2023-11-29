@@ -1,0 +1,129 @@
+/*------------------------------------*\
+    #HEADINGS
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+.h1 {
+    font-family: 'NeuzeitGro-Lig';
+    letter-spacing: -1px;
+    @include adjust-font-size-to( 42px, 2.4 );
+}
+
+    .h1--big {
+        @include adjust-font-size-to( 60px, 3.5 );
+    }
+
+
+.h2 {
+    font-family: 'NeuzeitGro-Lig';
+    letter-spacing: -0.5px;
+    @include adjust-font-size-to( 32px, 1.8 );
+}
+
+@each $breakpoint in $breakpoints {
+
+    @media #{ nth( $breakpoint, 2 ) } {
+        .#{ nth( $breakpoint, 1 ) }-h2 { @include adjust-font-size-to( 32px, 1.8 ); }
+    }
+
+}
+
+
+.h3 {
+    font-family: 'NeuzeitGro-Reg';
+    letter-spacing: -0.5px;
+    @include adjust-font-size-to( 28px, 1.6 );
+}
+
+@each $breakpoint in $breakpoints {
+
+    @media #{ nth( $breakpoint, 2 ) } {
+        .#{ nth( $breakpoint, 1 ) }-h3 { @include adjust-font-size-to( 28px, 1.6 ); }
+    }
+
+}
+
+
+.h4 {
+    font-family: 'NeuzeitGro-Reg';
+    @include adjust-font-size-to( 24px, 1.6 );
+}
+
+@each $breakpoint in $breakpoints {
+
+    @media #{ nth( $breakpoint, 2 ) } {
+        .#{ nth( $breakpoint, 1 ) }-h4 { @include adjust-font-size-to( 24px, 1.6 ); }
+    }
+
+}
+
+
+.h5 {
+    font-family: 'NeuzeitGro-Reg';
+    @include adjust-font-size-to( 22px, 1.4 );
+}
+
+@each $breakpoint in $breakpoints {
+
+    @media #{ nth( $breakpoint, 2 ) } {
+        .#{ nth( $breakpoint, 1 ) }-h5 { @include adjust-font-size-to( 22px, 1.4 ); }
+    }
+
+}
+
+
+
+/*------------------------------------*\
+    #PARAGRAPHS
+\*------------------------------------*/
+
+.p {
+    @include adjust-font-size-to( 16px, 1.2 );
+    // letter-spacing: 1px;
+}
+
+@each $breakpoint in $breakpoints {
+
+    @media #{ nth( $breakpoint, 2 ) } {
+        .#{ nth( $breakpoint, 1 ) }-p { @include adjust-font-size-to( 16px, 1.2 ); }
+    }
+
+}
+
+.pl {
+    @include adjust-font-size-to( 18px, 1 );
+    // letter-spacing: 1px;
+}
+
+@each $breakpoint in $breakpoints {
+
+    @media #{ nth( $breakpoint, 2 ) } {
+        .#{ nth( $breakpoint, 1 ) }-pl { @include adjust-font-size-to( 18px, 1 ); }
+    }
+
+}
+
+.ps {
+    @include adjust-font-size-to( 14px, 1 );
+    // letter-spacing: 1px;
+
+    &:after {
+        height: 1px;
+        bottom: -1px;
+    }
+}
+
+@each $breakpoint in $breakpoints {
+
+    @media #{ nth( $breakpoint, 2 ) } {
+        .#{ nth( $breakpoint, 1 ) }-ps { @include adjust-font-size-to( 14px, 1 ); }
+    }
+
+}
+
+a[href^=tel] {
+    color: inherit;
+    text-decoration: inherit;
+}

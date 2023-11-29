@@ -1,0 +1,72 @@
+/*------------------------------------*\
+    #FUND and #ACCOUNT bits
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+.funds-box.funds-box--selected, .accounts-box.accounts-box--selected {
+	position: relative;
+
+	&:after {
+		@extend %pseudo-element;
+		bottom: 0;
+		left: 50%;
+
+		// Triangle
+		border-left: 15px solid transparent;
+	    border-right: 15px solid transparent;
+	    border-top: 15px solid $white;
+
+		transform: translate( -50%, 100% );
+	}
+}
+
+
+.accounts-box,
+.funds-box {
+    position: relative;
+    padding-bottom: rhythm( 4 ) !important;
+	animation-name: fadeInUp;
+	animation-duration: 0.6s;
+	animation-fill-mode: both;
+
+    .btn {
+        position: absolute;
+        bottom: rhythm( 1 );
+        left: gutter( 1 );
+        right: gutter( 1 );
+    }
+}
+
+@include respond-to( mobile ) {
+	.funds-info {
+		margin: 0 gutter( -1 );
+	}
+}
+
+.funds-info {
+	.account-fund-open {
+		display: none;
+	}
+
+	.account-page & {
+		.account-fund-open {
+			display: block;
+		}
+		.funds-open {
+			display: none;
+		}
+	}
+}
+
+.next-step__pull-button, .open-account__pull-button {
+    position: absolute;
+    bottom: 0;
+    left: gutter( 1 );
+
+    @include respond-to( tablet ) {
+        position: relative;
+        left: 0;
+    }
+}

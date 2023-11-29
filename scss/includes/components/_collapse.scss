@@ -1,0 +1,92 @@
+/*------------------------------------*\
+    #COLLAPSE
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+
+section.collapse {
+	transition: max-height 0.7s ease-out, background 0.5s ease; // Gradient transitions not supported though
+	overflow: hidden;
+
+	// In order to animate the transition this needs to a set value instead of 'auto'.
+	// Should be bigger than the section can ever get.
+	// max-height: 2000px;
+	max-height: none;
+
+	&.collapsed {
+		max-height: rhythm( 5 ) + 36px; // padding + height
+
+		@include respond-to( tablet ) {
+			max-height: rhythm( 5 ) + 32px; // padding + height
+		}
+
+		// @include respond-to( mobile ) {
+		// 	max-height: rhythm( 5 ) + 32px; // padding + height
+		// }
+
+		.collapse__main-title {
+			width: 100%;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.collapse__secondary-item {
+			display: none;
+		}
+	}
+}
+
+
+
+
+
+.collapse-panel {
+	.collapse-panel__toggle {
+		text-decoration: none;
+
+		// Do not show link
+		cursor: default;
+		span {
+			cursor: text;
+		}
+
+		// Transition icon
+		.icon {
+			transition: transform 0.3s ease;
+		}
+	}
+}
+
+@include respond-to( tablet ) {
+	.collapse-panel {
+
+		// Switch to link
+		.collapse-panel__toggle {
+			cursor: pointer;
+			span {
+				cursor: pointer;
+			}
+		}
+
+		.collapse-panel__content {
+			display: none;
+			animation-name: fadeIn;
+			animation-duration: 0.6s;
+			animation-fill-mode: both;
+		}
+
+		&.collapse-panel--open {
+			.collapse-panel__toggle .icon {
+				transform: rotate( 180deg );
+			}
+
+			.collapse-panel__content {
+				display: block;
+			}
+		}
+	}
+}

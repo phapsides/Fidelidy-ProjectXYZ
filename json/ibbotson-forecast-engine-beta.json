@@ -1,0 +1,222 @@
+{
+  "success": true,
+  "error": null,
+  "current": {
+    "totalWealth": [
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 10000
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 10000
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 10000
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 10704.676
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 12509.611
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8860.147
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 11221.223
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 13882.803
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8185.423
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 11651.76
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 15161.038
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8224.822
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 11991.608
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 16381.802
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8053.588
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 12434.731
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 17992.677
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8432.714
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 12881.551
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 19327.277
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8210.298
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 13413.995
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 21336.185
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8580.133
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 13998.241
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 22390.087
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8393.137
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 14546.921
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 24591.549
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8484.05
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 15013.397
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 26122.334
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8500.025
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 15424.593
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 27028.79
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8468.563
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 16197.124
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 28681.64
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8141.945
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 16892.455
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 31146.19
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8504.606
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 17635.944
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 31669.915
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8569.974
+        },
+        "goalYear": null
+      },
+      {
+        "averageMarketCondition": {
+          "todayMoneyValue": 18270.765
+        },
+        "exceptionalMarketCondition": {
+          "todayMoneyValue": 34752.891
+        },
+        "poorMarketCondition": {
+          "todayMoneyValue": 8620.753
+        },
+        "goalYear": null
+      }
+    ],
+    "goal": null,
+    "wealth": [],
+    "year": [
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026",
+      "2027",
+      "2028",
+      "2029",
+      "2030",
+      "2031"
+    ]
+  },
+  "target": null,
+  "proposed": null
+}

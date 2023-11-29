@@ -1,0 +1,137 @@
+/*------------------------------------*\
+    #CONTAINERS
+
+    Dependancies: settings/variables
+                  tools/mixins
+
+\*------------------------------------*/
+/*
+ * Using overflow 'hack' for a fixed + fluid column layout.
+ *
+ * 1. Resume normal flow outside of this element.
+ * 2. Float the fixed element. The fixed elemenet must come first in the source.
+ * 3. Add the default gutter between the two elements
+ * 4. The magic to stop content wrapping around the floated element.
+ */
+%fixed-fluid,
+.fixed-fluid {
+    @extend %clearfix; /* [1] */
+    display: block;
+}
+
+    .fixed-fluid__fixed {
+        display: block;
+        float: left; /* [2] */
+    }
+
+    .fixed-fluid__fluid {
+        padding-left: gutter( 1 ); /* [3] */
+        overflow: auto; /* [4] */
+    }
+
+
+%fixed-fluid--rtl,
+.fixed-fluid--rtl {
+
+    > .fixed-fluid__fixed {
+        float: right;
+    }
+
+    > .fixed-fluid__fluid {
+        padding-right: gutter( 1 );
+        padding-left: 0;
+    }
+}
+
+
+
+
+
+/**
+ *
+ * Classes for setting any element as a full size background to another element. Mainly used on images.
+ * .full-background__image should be the first child of .full-background to ensure stacking.
+ *
+ * 1. Relative for absolute positioned child element.
+ * 2. Needs a z-index so it can sit behind other elements inside the wrapper.
+ * 3. Make all other elements in the wrapper have a higher z-index.
+ */
+.full-background {
+    position: relative; /* [1] */
+}
+
+    .full-background__background {
+        position: absolute !important;
+        background-color: $text-colour-muted;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0; /* [2] */
+
+        ~ * {
+            position: relative;
+            z-index: 1; /* [3] */
+        }
+    }
+
+
+
+
+
+/**
+ *
+ * Used within full width containers to center content and add gutters based on screen width.
+ *
+ */
+%contented,
+.contented {
+    display: block;
+    margin: auto;
+    padding-right: gutter( 3 );
+    padding-left: gutter( 3 );
+    min-width: $min-width;
+    max-width: $max-width;
+
+    @include respond-to( desktop ) {
+        padding-right: gutter( 2 );
+        padding-left: gutter( 2 );
+    }
+
+    @include respond-to( mobile ) {
+        padding-right: gutter( 1 );
+        padding-left: gutter( 1 );
+    }
+
+    @include respond-to( min ) {
+        padding-right: gutter( 0.5 );
+        padding-left: gutter( 0.5 );
+    }
+}
+
+/**
+ *
+ * Used within .contented content to make a child element full width again
+ *
+ */
+%discontented,
+.discontented {
+    margin-right: gutter( -3 );
+    margin-left: gutter( -3 );
+
+
+    @include respond-to( desktop ) {
+        margin-right: gutter( -2 );
+        margin-left: gutter( -2 );
+    }
+
+    @include respond-to( mobile ) {
+        margin-right: gutter( -1 );
+        margin-left: gutter( -1 );
+    }
+
+    @include respond-to( min ) {
+        margin-right: gutter( -0.5 );
+        margin-left: gutter( -0.5 );
+    }
+}

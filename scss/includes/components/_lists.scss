@@ -1,0 +1,72 @@
+/*------------------------------------*\
+    #MASKS
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+.list {
+
+    .list__item {
+        list-style: disc;
+        list-style-position: inside;
+    }
+}
+
+    .list--dash {
+
+        .list__item {
+            list-style: none;
+            padding-left: gutter( 0.5 );
+            position: relative;
+
+            &:before {
+                content: '';
+                display: block;
+                height: 1px; width: 5px;
+                background: $grey-25;
+                position: absolute;
+                top: rhythm( 0.5 ); left: 0px;
+            }
+        }
+    }
+
+
+    .list--icon {
+
+        .list__item {
+            list-style: none;
+            padding-left: gutter( 1.25 );
+            position: relative;
+
+            .list__icon {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+
+
+    .list--no-point {
+        .list__item {
+            list-style: none;
+        }
+    }
+
+
+    .list--number { // Only used for fancy select
+
+        .list__item {
+            list-style: none;
+            padding-left: gutter( 1.5 );
+            position: relative;
+
+            .list__number {
+                position: absolute;
+                left: gutter( 0.5 );
+                top: 10px;
+                display: block;
+            }
+        }
+    }

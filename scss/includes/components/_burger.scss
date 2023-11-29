@@ -1,0 +1,84 @@
+/*------------------------------------*\
+    #BURGER
+
+    Dependancies: settings/variables,
+                  definitions/patterns
+
+\*------------------------------------*/
+
+.site-nav__burger {
+    @extend %hide-text;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: rhythm( 3 );
+    height: rhythm( 3 );
+    font-size: 0;
+    appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    cursor: pointer;
+
+    // Skin
+    background: transparent;
+
+    &:focus {
+        outline: none;
+    }
+
+    span {
+        display: block;
+        position: absolute;
+        transition: background 0s 0.2s;
+
+        // Skin
+        top: 28px;
+        left: 12px;
+        right: 12px;
+        height: 4px;
+        background: $white;
+
+        &:before, &:after {
+            @extend %pseudo-element;
+            left: 0;
+            width: 100%;
+            transition-duration: 0.2s, 0.2s;
+            transition-delay: 0.2s, 0s;
+
+            // Skin
+            height: 4px;
+            background: $white;
+        }
+
+        &:before {
+            top: -12px;
+            transition-property: top, transform;
+        }
+
+        &:after {
+            bottom: -12px;
+            transition-property: bottom, transform;
+        }
+    }
+
+    // When opened
+    &.site-nav__burger--open span {
+        background: transparent;
+
+        &:before, &:after {
+            transition-delay: 0s, 0.2s;
+        }
+
+        &:before {
+            top: 0;
+            transform: rotate( 45deg );
+        }
+
+        &:after {
+            bottom: 0;
+            transform: rotate( -45deg );
+        }
+    }
+}

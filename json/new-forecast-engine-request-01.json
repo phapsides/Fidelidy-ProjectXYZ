@@ -1,0 +1,19 @@
+{
+    "caller": "WEB",
+    "currency": "GBP",
+    "riskLevel": 2,
+    "lumpSump": 10000,
+    "goals": [
+        {
+            "goalName": "My kids fund",
+            "payOutYear": "15",
+            "amount": "100000"
+        }
+    ],
+    "duration": 15,
+    "msp": {
+        "amount": 12000,
+        "mode": 0
+    },
+    "returns": 1
+}

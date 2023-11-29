@@ -1,0 +1,122 @@
+/*------------------------------------*\
+    #ICONS
+
+    Custom icon font generated here
+    http://fontello.com/
+
+\*------------------------------------*/
+
+@font-face {
+    font-family: 'fontello';
+    src: url('../fonts/fontello.eot?35077251');
+    src: url('../fonts/fontello.eot?35077251#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff?35077251') format('woff'),
+       url('../fonts/fontello.ttf?35077251') format('truetype'),
+       url('../fonts/fontello.svg?35077251#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+ [class^="icon-"]:after, [class*=" icon-"]:after {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    vertical-align: middle;
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate( 0, -2px );
+
+    &.icon-medium:after {
+        @include adjust-font-size-to( 25px, 1 );
+    }
+
+    &.icon-large:after {
+        @include adjust-font-size-to( 30px, 1 );
+    }
+
+    &.icon-extra-large:after {
+        @include adjust-font-size-to( 40px, 1 );
+    }
+}
+
+.icon-extra-large:after {
+    @include adjust-font-size-to( 40px, 1 );
+}
+
+/* Paste Exported Definitions here */
+// Change after to after after pasting it in
+.icon-settings:after { content: '\e800'; } /* '' */
+.icon-close:after { content: '\e801'; } /* '' */
+.icon-exclamation:after { content: '\e802'; } /* '' */
+.icon-info:after { content: '\e802';  transform: translate( 0, -2px ) rotate( 180deg ); } /* '' */
+.icon-car:after { content: '\e803'; } /* '' */
+.icon-document:after { content: '\e804'; } /* '' */
+.icon-down-chevron:after { content: '\e805'; } /* '' */
+.icon-family:after { content: '\e806'; } /* '' */
+.icon-house:after { content: '\e807'; } /* '' */
+.icon-arrow:after { content: '\e808'; transform: translate( 0, 2px ); } /* '' */
+.icon-lock:after { content: '\e809'; } /* '' */
+.icon-invest:after { content: '\e80a'; } /* '' */
+.icon-play:after { content: '\e80b'; } /* '' */
+.icon-ring:after { content: '\e80c'; } /* '' */
+.icon-tick:after { content: '\e80d'; } /* '' */
+.icon-beach:after { content: '\e80e'; } /* '' */
+.icon-quote:after { content: '\e80f'; } /* '' */
+.icon-down-arrow:after { content: '\e810'; } /* '' */
+.icon-externallink:after { content: '\e811'; } /* '' */
+/* Stop pasting */
+
+
+.icon-left-chevron:after {
+    content: '\e805';
+    transform: translateY( -2px ) rotate( -90deg );
+}
+
+.icon-up-chevron:after {
+    content: '\e805';
+    transform: translateY( -2px ) rotate( -180deg );
+}
+
+.number-badge {
+    border: 1px solid $grey-25;
+    border-radius: 100%;
+    text-align: center;
+    width: rhythm( 1.6 ); height: rhythm( 1.6 );
+    line-height: rhythm( 1.6 );
+    display: block;
+}
+
+
+// Specific
+.icon-quote--home {
+    position: relative;
+    top: -5px;
+    margin-right: 5px;
+    &:after {
+        @include adjust-font-size-to( 30px, 1 );
+    }
+}

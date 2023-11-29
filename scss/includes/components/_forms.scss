@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    #ANIMATIONS
+
+    Dependencies: variables
+
+\*------------------------------------*/
+
+.form-input {
+	background: transparent;
+    border: 2px solid $grey-15;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+    	border-color: $text-colour;
+    }
+}
+
+@each $colour in $fidelity-colours {
+    .form-input.text-#{ nth( $colour, 1 ) } {
+    	&:focus {
+    		border-color: #{ nth( $colour, 2 ) };
+    	}
+    }
+}
+
+.form-input--error {
+	border-color: $red-1;
+}

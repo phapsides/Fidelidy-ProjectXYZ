@@ -1,0 +1,157 @@
+@import "compass/typography/vertical_rhythm";
+
+$rhythm-unit: "px"; //compass
+$rem-with-px-fallback: false; //compass
+$round-to-nearest-half-line: true; //compass
+$base-font-size: 18px; //compass
+$base-line-height: 20px; //compass
+
+$base-gutter: 24px; // settings/mixins
+
+$max-width: px-to-rem( 1440px );
+$desktop-width: px-to-rem( 1080px );
+$tablet-width: px-to-rem( 840px );
+$mobile-width: px-to-rem( 500px );
+$min-width: px-to-rem( 320px );
+
+$navbar-height: px-to-rem( 60px );
+
+$breakpoints: (
+    "max"       : "( max-width: #{$max-width} )",
+    "desktop"   : "( max-width: #{$desktop-width} )",
+    "tablet"    : "( max-width: #{$tablet-width} )",
+    "mobile"    : "( max-width: #{$mobile-width} )",
+    "min"       : "( max-width: #{$min-width} )",
+    "retina"    : "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)"
+);
+
+$font-path: "../fonts";
+$image-path: "../images";
+
+$primary-font: "NeuzeitGro-Reg";
+
+$border-radius: 3px;
+
+// Fidelity colours
+$grey-85: #262626;
+$grey-60: #666666;
+$grey-25: #bfbfbf;
+$grey-15: #d9d9d9;
+$grey-05: #f1f1f1;
+$grey-03: #f7f7f7;
+
+$white: #ffffff;
+
+$orange-1: #f26730;
+$orange-2: #e57725;
+$orange-3: #ff8d31;
+
+$blue-1: #006193;
+$blue-2: #0083bb;
+$blue-3: #00a6e0;
+$blue-4: #eaf2f6;
+$blue-5: #606b7e;
+$blue-6: #404755;
+$blue-7: #e2f3f8;
+
+$green-1: #339900;
+$green-2: #91cc9b;
+
+$red-1: #cc3333;
+$red-2: #e78e91;
+
+$yellow-1: #f0d202;
+$yellow-2: #fffdf3;
+
+// Colours array
+$fidelity-colours: (
+	"grey-85"  : $grey-85,
+	"grey-60"  : $grey-60,
+	"grey-25"  : $grey-25,
+	"grey-15"  : $grey-15,
+	"grey-05"  : $grey-05,
+	"grey-03"  : $grey-03,
+	"white"    : $white,
+	"orange-1" : $orange-1,
+	"orange-2" : $orange-2,
+	"orange-3" : $orange-3,
+	"blue-1"   : $blue-1,
+	"blue-2"   : $blue-2,
+	"blue-3"   : $blue-3,
+	"blue-4"   : $blue-4,
+    "blue-5"   : $blue-5,
+    "blue-6"   : $blue-6,
+	"green-1"  : $green-1,
+	"green-2"  : $green-2,
+	"red-1"    : $red-1,
+	"red-2"    : $red-2,
+	"yellow-1" : $yellow-1,
+	"yellow-2" : $yellow-2
+);
+
+// Darkened colours array
+$fidelity-colours-darkened: (
+	"grey-85"  : darken( $grey-85, 5% ),
+	"grey-60"  : darken( $grey-60, 5% ),
+	"grey-25"  : darken( $grey-25, 5% ),
+	"grey-15"  : darken( $grey-15, 5% ),
+	"grey-05"  : darken( $grey-05, 5% ),
+	"grey-03"  : darken( $grey-03, 5% ),
+	"white"    : darken( $white, 5% ),
+	"orange-1" : darken( $orange-1, 5% ),
+	"orange-2" : darken( $orange-2, 5% ),
+	"orange-3" : darken( $orange-3, 5% ),
+	"blue-1"   : darken( $blue-1, 5% ),
+	"blue-2"   : darken( $blue-2, 5% ),
+	"blue-3"   : darken( $blue-3, 5% ),
+	"blue-4"   : darken( $blue-4, 5% ),
+	"blue-5"   : darken( $blue-5, 5% ),
+	"blue-6"   : darken( $blue-6, 5% ),
+	"green-1"  : darken( $green-1, 5% ),
+	"green-2"  : darken( $green-2, 5% ),
+	"red-1"    : darken( $red-1, 5% ),
+	"red-2"    : darken( $red-2, 5% ),
+	"yellow-1" : darken( $yellow-1, 5% ),
+	"yellow-2" : darken( $yellow-2, 5% )
+);
+
+// Lightened colours array
+$fidelity-colours-ligthened: (
+	"grey-85"  : lighten( $grey-85, 10% ),
+	"grey-60"  : lighten( $grey-60, 10% ),
+	"grey-25"  : lighten( $grey-25, 10% ),
+	"grey-15"  : lighten( $grey-15, 10% ),
+	"grey-05"  : lighten( $grey-05, 10% ),
+	"grey-03"  : lighten( $grey-03, 10% ),
+	"white"    : lighten( $white, 10% ),
+	"orange-1" : lighten( $orange-1, 10% ),
+	"orange-2" : lighten( $orange-2, 10% ),
+	"orange-3" : lighten( $orange-3, 10% ),
+	"blue-1"   : lighten( $blue-1, 10% ),
+	"blue-2"   : lighten( $blue-2, 10% ),
+	"blue-3"   : lighten( $blue-3, 10% ),
+	"blue-4"   : lighten( $blue-4, 10% ),
+	"blue-5"   : lighten( $blue-5, 10% ),
+	"blue-6"   : lighten( $blue-6, 10% ),
+	"green-1"  : lighten( $green-1, 10% ),
+	"green-2"  : lighten( $green-2, 10% ),
+	"red-1"    : lighten( $red-1, 10% ),
+	"red-2"    : lighten( $red-2, 10% ),
+	"yellow-1" : lighten( $yellow-1, 10% ),
+	"yellow-2" : lighten( $yellow-2, 10% )
+);
+
+// Text colours
+$text-colour: $grey-85;
+$text-colour-inverted: $white;
+$text-colour-muted: $grey-15;
+
+// Helper colours
+$background-colour: $white;
+$border-colour: $grey-15;
+
+// Nav custom colours
+$nav-dropdown: #515b6b;
+$nav-dropdown-item: #606b7e;
+
+@include establish-baseline; //compass

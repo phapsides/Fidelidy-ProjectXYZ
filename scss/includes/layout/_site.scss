@@ -1,0 +1,132 @@
+/*------------------------------------*\
+    #SITE
+
+    Dependancies:
+
+\*------------------------------------*/
+
+
+/*
+ * Sticky footer
+ */
+
+ html,
+ body,
+ .site-wrapper {
+    height: 100%;
+    position: relative;
+}
+
+    .site-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: index( $elements, "site-header" );
+        transition: background 0.3s ease, top 0.3s ease;
+
+        &.site-header--fixed {
+            position: fixed;
+            background: $grey-85;
+
+            &.fixed-hidden {
+                top: -60px;
+
+                &.site-header__burger--open {
+                    top: 0;
+                }
+
+                .nav__dropdown {
+                    display: none !important;
+                }
+            }
+
+            &.no-transition {
+                transition: background 0.3s ease, top 0s ease;
+            }
+        }
+
+        &.site-header__burger--open {
+            background: $grey-85;
+            height: 150%;
+            overflow: hidden;
+
+            // Get rid og padding when menu open and not fixed
+            &.rhythmic-xl {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    .site-content {
+        min-height: 100%;
+        margin-bottom: -148px;
+        overflow: hidden;
+        z-index: index( $elements, "site-content" );
+
+        &:after {
+            content: "";
+            display: block;
+            height: 148px;
+        }
+    }
+
+    .site-footer {
+        padding: rhythm( 0.75 ) 0;
+        clear: both;
+        min-height: 148px;
+        z-index: index( $elements, "site-footer" );
+
+        background: #242424;
+    }
+
+
+
+// Small category sign over header images
+.site-cat {
+    position: absolute;
+    bottom: rhythm( 1 );
+    right: 0;
+    padding-left: 20px;
+
+    &.site-cat--home {
+        bottom: rhythm( 6 );
+    }
+
+    &:after {
+        @extend %pseudo-element;
+        bottom: -10px;
+        left: 0;
+        width: 10px;
+        height: 60px;
+
+        background: $red-1;
+    }
+}
+
+
+
+.responsive {
+    position: relative;
+    z-index: 5;
+
+    @include respond-to( max ) {
+        z-index: 5;
+    }
+
+    @include respond-to( desktop ) {
+        z-index: 4;
+    }
+
+    @include respond-to( tablet ) {
+        z-index: 3;
+    }
+
+    @include respond-to( mobile ) {
+        z-index: 2;
+    }
+
+    @include respond-to( min ) {
+        z-index: 1;
+    }
+}

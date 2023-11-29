@@ -1,0 +1,85 @@
+<div class="fancy-select">
+
+	<select class="visuallyhidden">
+		<% _.each( options, function( option ) { %>
+			<option value="<%= option.value %>" <% if ( selected == option.value ) { %>selected<% } %>><%= option.name %></option>
+		<% } ); %>
+	</select>
+
+	<div class="selected">
+		<% _.each( options, function( option ) { %>
+			<% if ( selected == option.value ) { %>
+				<span class="mobile-p listTrigger pointer animate-left"><%= option.name %></span>
+			<% } %>
+		<% } ); %>
+
+		<% if ( selected === null ) { %>
+			<span class="mobile-p listTrigger pointer animate-left">Please select a risk level</span>
+		<% } %>
+	</div>
+
+	<ol class="select-list shadow list list--number">
+		<% _.each( options, function( option ) { %>
+			<li class="list__item selectTrigger pointer gutted-xs mobile-gutted-xs rhythmic-xs <% if ( selected == option.value ) { %>selected<% } %>" data-value="<%= option.value %>">
+				<span class="mobile-p">
+					<%= option.name %>
+				</span>
+			</li>
+		<% } ); %>
+	</ol>
+
+</div>
+
+<div class="fancy-select-info">
+	<a href="#risk-info-lightbox" class="lightbox-trigger text-link text-link--no-underline">
+		<span class="icon-info icon-medium text-grey-15"></span>
+	</a>
+</div>
+
+
+<div class="lightbox__content" id="risk-info-lightbox">
+	<a href="#" class="lightbox__close"><span class="text-white icon icon-close"></span></a>
+    <div class="lightbox__inner">
+        <div class="gutted rhythmic-l bg-white">
+            <h2 class="h2 tablet-h3 mobile-h4 text-blue-1 rhythm-m-1">
+                Risk explained
+            </h2>
+            <p class="p text-grey-85 rhythm-m-0-half">
+                Because investments can go down as well as up, you could find that you get back less than you've paid in. Fidelity's Portfolio Managers use their experience and expertise and aim to get the best returns for your investments based on how much risk you're willing to take.
+            </p>
+            <p class="p text-grey-85 rhythm-m-1">
+                If you go for a high-risk attitude to your investments this will carry a higher chance of losing some, or all, of your money. Avoiding loss may not get you the return of investment as quickly - but it will be put into more secure assets, such as cash and bonds.</p>
+            <p class="p text-grey-85 rhythm-m-1">We urge our investors to make sure that their investments meet, and continue to meet, their own personal circumstances now and in the future. If you are unsure of your the investments you should choose, you should consult an independent financial adviser.</p>
+            <p class="p text-grey-85">
+				<strong>1. Avoiding loss is my priority</strong>
+            </p>
+            <p class="p text-grey-85 rhythm-m-1">
+				Focused on capital preservation, while still aiming to generate modest investment returns over the long term by taking a smaller amount of risk.
+            </p>
+            <p class="p text-grey-85">
+				<strong>2. I prefer slow and steady</strong>
+            </p>
+            <p class="p text-grey-85 rhythm-m-1">
+				Aims for steady returns over the years and will hold an even split of higher-risk and lower-risk investments.
+            </p>
+            <p class="p text-grey-85">
+				<strong>3. I'm willing to lose some to make some</strong>
+            </p>
+            <p class="p text-grey-85 rhythm-m-1">
+				More balanced, by placing emphasis on long term capital growth but also holding some more defensive assets.
+            </p>
+            <p class="p text-grey-85">
+				<strong>4. Focused on growth</strong>
+            </p>
+            <p class="p text-grey-85 rhythm-m-1">
+				Focused on higher long term returns. Although they are well diversified, they hold higher risk assets such as equities, commodities and property.
+            </p>
+            <p class="p text-grey-85">
+				<strong>5. Risk losses for higher potential returns</strong>
+            </p>
+            <p class="p text-grey-85">
+                All out for growth by investing in equities around the world. We believe they have great potential for long term growth, but you must understand you are taking on a high level of risk.
+            </p>
+        </div>
+    </div>
+</div>

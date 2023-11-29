@@ -1,0 +1,168 @@
+/*------------------------------------*\
+    #MIXINS
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+/*
+ * Equivalent to the rhythm function but for horizontal spacing based on a $base-gutter variable.
+ */
+@function gutter( $lines: 1, $font-size: $base-font-size, $offset: 0 ) {
+    $gutter: convert-length( $lines * $base-gutter - $offset, $rhythm-unit, $font-size );
+    @if unit( $gutter ) == px {
+        $gutter: floor( $gutter );
+    }
+    @return $gutter;
+}
+
+/*
+ * Button variation generator
+ */
+@mixin button-factory( $background: "", $color: "", $hover-background: "", $hover-colour: "", $trans-colour: "", $font-size: "" ) {
+
+    @if $font-size != "" {
+        @include adjust-font-size-to( $font-size );
+    }
+
+    @if $background != "" {
+        background: $background;
+        border-color: $background;
+    }
+
+    @if $color != "" {
+        color: $color;
+    }
+
+    @if $background != "" && $color != "" {
+        &.btn--transparent {
+            box-shadow: inset 0 0 0 2px $background;
+            background-color: transparent;
+
+            &.btn--small {
+                box-shadow: inset 0 0 0 1px $background;
+            }
+
+            @if $trans-colour != "" {
+                color: $trans-colour;
+            } @else {
+                color: #ffffff;
+            }
+
+            // Specific
+            &.btn--small-padded {
+                box-shadow: none;
+                &.active {
+                    box-shadow: inset 0 0 0 3px $background;
+                }
+            }
+
+            &:not([disabled]):hover {
+                @if $hover-background != "" {
+
+                    box-shadow: inset 0 0 0 2px $background;
+                    background: $background;
+
+                    &.btn--small {
+                        box-shadow: inset 0 0 0 1px $background;
+                    }
+
+                    // Specific
+                    &.btn--small-padded {
+                        transition: none;
+                        color: $background;
+                        background: transparent;
+                        box-shadow: inset 0 0 0 3px $background;
+                    }
+
+                } @else {
+                    background: $background;
+                }
+
+                @if $hover-colour != "" {
+                    color: $hover-colour;
+                } @else {
+                    color: $color;
+                }
+            }
+
+            .old & {
+                border: 2px solid $background;
+
+                &.btn--small {
+                    border: 1px solid $background;
+                }
+
+                &:hover {
+                    border-color: $hover-background;
+                }
+            }
+        }
+    }
+
+    &:not([disabled]):hover {
+        @if $hover-background != "" {
+            background: $hover-background;
+        } @else if $background != "" {
+            // background: darken( $background, 10% );
+            background: $background;
+            // opacity: 0.8;
+        }
+
+        @if $hover-colour != "" {
+            color: $hover-colour;
+        }
+    }
+}
+
+
+/*
+ * Turn PX to REM ( as long as that's the unit we're using )
+ */
+@function px-to-rem( $size ) {
+    @if $rhythm-unit == "rem" {
+        $rems: $size / $base-font-size;
+        @return #{$rems}rem;
+    }
+
+    @return $size;
+}
+
+/*
+ * Retrieves a media query from the $breakpoints map variable
+ */
+@mixin respond-to( $breakpoint ) {
+    @if map-has-key( $breakpoints, $breakpoint ) {
+        @media #{ map-get( $breakpoints, $breakpoint ) } {
+            @content;
+        }
+    } @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.";
+    }
+}
+
+
+/*
+ * Helper mixin for linear gradient
+ */
+@mixin css-gradient( $from: "", $to: "" ) {
+    background-image: -webkit-gradient( linear, left top, left bottom, from( $from ), to( $to ) );
+    background-image: -webkit-linear-gradient( top, $from, $to );
+    background-image: -moz-linear-gradient( top, $from, $to );
+    background-image: -o-linear-gradient( top, $from, $to );
+    background-image: -ms-linear-gradient( top, $from, $to );
+    background-image: linear-gradient( top, $from, $to );
+}
+
+
+/*
+ * Helper mixin for animations
+ */
+@mixin animation( $name, $duration, $timing, $direction: normal, $iteration: 1, $fill: both ) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing;
+    animation-direction: $direction;
+    animation-iteration-count: $iteration;
+    animation-fill-mode: $fill;
+}

@@ -1,0 +1,196 @@
+/*------------------------------------*\
+    #ELEMENTS
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+/*
+ * 1. sorts out super long words in comments and messages (https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/)
+ */
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    position: relative;
+    background: $background-colour;
+    color: $text-colour;
+    font-family: $primary-font;
+    @include adjust-font-size-to( $base-font-size, 1.4 );
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include adjust-font-size-to( $base-font-size );
+    margin: 0;
+    font-weight: normal;
+}
+
+p {
+    margin: 0;
+    word-wrap: break-word; /* [1] */
+    hyphens: auto; /* [1] */
+}
+
+ul,
+ol,
+dl {
+    margin: 0;
+    padding: 0;
+}
+
+dt,
+dd {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 0;
+    text-align: left;
+}
+
+blockquote {
+    margin: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+img,
+svg,
+iframe {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+audio {
+    display: block;
+    min-height: rhythm( 2 );
+}
+
+video {
+    display: block;
+    min-height: rhythm( 10 );
+}
+
+fieldset {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+legend {
+    padding: 0;
+}
+
+input,
+button,
+textarea {
+    @include adjust-font-size-to( 15px );
+    margin: 0;
+    outline: none;
+    border: 0 solid;
+    padding: 0;
+    line-height: $base-line-height;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+textarea {
+    min-height: rhythm( 3, 15px );
+    vertical-align: text-top;
+    resize: vertical;
+}
+
+input[type="image"] {
+    border: 0;
+}
+
+input[type="file"] {
+    cursor: pointer;
+}
+
+// input[type="date"],
+// input[type="month"],
+// input[type="week"],
+// input[type="datetime"],
+// input[type="datetime-local"] {
+
+// }
+
+
+input[type="checkbox"] {
+    vertical-align: baseline;
+    -webkit-appearance: checkbox;
+}
+
+input[type="radio"] {
+    vertical-align: baseline;
+    -webkit-appearance: radio;
+}
+
+// input[type="submit"],
+// input[type="reset"],
+// input[type="button"],
+// button[type="submit"],
+// button[type="reset"],
+// button[type="button"] {
+
+// }
+
+// select {
+// }
+
+pre {
+    margin: 0;
+}
+
+code,
+samp,
+kbd {
+    line-height: 1;
+}
+
+small {
+    @include adjust-font-size-to( $base-font-size*0.75 );
+    vertical-align: bottom;
+}
+
+sup,
+sub {
+    @include adjust-font-size-to( ( $base-font-size*0.75 ), 0.5 );
+}
+
+// Fucking IE... https://github.com/angular/angular.js/issues/1381
+\:header,
+\:section,
+\:article,
+\:footer,
+\:aside,
+\:dialog,
+\:figcaption,
+\:figure,
+\:main,
+\:nav {
+    display: block;
+}

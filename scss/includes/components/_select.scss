@@ -1,0 +1,211 @@
+/*------------------------------------*\
+    #SELECT
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+$transition-speed: 300ms;
+$animation-speed: 450ms;
+$animation-delay-speed: 50; // ms
+
+
+.fancy-select {
+	position: relative;
+	border: 1px solid white;
+	padding: rhythm( 0.5 ) gutter( 0.25 );
+	display: block;
+	margin-right: 35px;
+
+	ol.select-list {
+		width: 100%;
+		position: absolute;
+		top: 125%;
+		left: 0;
+		margin-right: -100%;
+		display: none;
+		// overflow: hidden;
+		z-index: index( $elements, "select-list" );
+
+		// Animate it in
+		@include animation( selectScale, $animation-speed, cubic-bezier( 0.180, -0.550, 0.265, 1.550 ) );
+
+		// Box shadow is transparent then we animate the color
+		// box-shadow: 0 0 0 4000px rgba( 0, 0, 0, 0 );
+
+		li {
+			display: block;
+			color: white;
+			overflow: hidden;
+
+			> span {
+				//position: relative;
+				display: block;
+				transform: translate3d( 100px, 0, 0 );
+				opacity: 0;
+				transition: transform $transition-speed;
+				// animate it in
+				@include animation( fadeInRight, $animation-speed, ease-out );
+
+				.oldie & {
+					opacity: 1;
+					transform: translate3d( 0, 0, 0 );
+				}
+
+			}
+
+		}
+
+		&.visible {
+			display: block;
+			//box-shadow: 0 0 0 4000px rgba( 0, 0, 0, 0.7 ); // animated
+		}
+	}
+
+	div.selected > span {
+		display: block;
+		padding-right: gutter( 1.25 );
+		padding-left: gutter( 1.25 );
+
+		.selected__number {
+			position: absolute;
+			top: 10px;
+			left: gutter( 0.5 );
+		}
+
+		&:after {
+			@extend %pseudo-element;
+		    top: 50%;
+		    right: 0;
+		    height: 0;
+		    width: 0;
+		    border: 8px solid transparent;
+		    margin-top: 4px;
+		    transform: translate( -50%, -50% );
+
+		    .oldie & {
+		    	top: 30px;
+		    }
+		}
+
+		// Animate it in
+		&.animate-left {
+			//@include animation( fadeInRightFast, $transition-speed, ease-out );
+		}
+
+		&.animate-right {
+			//@include animation( fadeInLeftFast, $transition-speed, ease-in );
+		}
+	}
+}
+
+
+
+// Animation delays
+@for $i from 1 through 30 {
+	.fancy-select {
+		ol.select-list {
+			li:nth-child( #{$i} ) span {
+				animation-delay: #{ $i * $animation-delay-speed }ms;
+			}
+		}
+	}
+}
+
+// Backgrounds
+@each $colour in $fidelity-colours {
+	.select-#{ nth( $colour, 1 ) } {
+		.fancy-select {
+			ol.select-list {
+				background: map-get( $fidelity-colours-darkened, #{ nth( $colour, 1 ) } );
+
+				&:before {
+					content: '';
+				    position: absolute;
+				    top: -10px;
+				    right: 6px;
+				    width: 0;
+				    height: 0;
+				    border-left: 10px solid transparent;
+				    border-right: 10px solid transparent;
+				    border-bottom: 10px solid map-get( $fidelity-colours-darkened, #{ nth( $colour, 1 ) } );
+				}
+				li:hover {
+					background-color: map-get( $fidelity-colours-ligthened, #{ nth( $colour, 1 ) } );
+				}
+				li span:after {
+					background: map-get( $fidelity-colours-ligthened, #{ nth( $colour, 1 ) } );
+				}
+			}
+			div.selected span {
+				color: $white;
+				&:after {
+					border-top-color: $white;
+				}
+			}
+		}
+	}
+}
+
+
+
+// Keyframes
+@keyframes selectScale {
+    0% {
+        opacity: 0;
+        transform: translate3d( 0, 0, 0 ) scaleY( 0 );
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d( 0, 0, 0 ) scaleY( 1 );
+    }
+}
+
+
+
+// Specific styles for learn page
+.fancy-select--learn {
+	display: inline-block;
+
+	@media ( max-width: 1200px ) {
+		display: block;
+		margin-top: rhythm( 1 );
+		margin-left: gutter( 2.9 );
+
+		.fancy-select {
+			display: inline-block;
+		}
+	}
+
+	@include respond-to( tablet ) {
+		margin-left: 0;
+		margin-top: rhythm( 1.5 );
+
+		.fancy-select div.selected span {
+			padding-left: 0;
+
+		 	&:after {
+				border: 6px solid transparent;
+				border-top-color: $blue-2;
+				right: 7px;
+			}
+		}
+	}
+
+	@include respond-to( mobile ) {
+		.fancy-select div.selected span {
+			overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		}
+	}
+}
+
+
+
+.fancy-select-info {
+	position: absolute;
+	top: 12px;
+	right: 0;
+}

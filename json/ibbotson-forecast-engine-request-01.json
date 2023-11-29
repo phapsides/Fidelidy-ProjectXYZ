@@ -1,0 +1,18 @@
+{
+    "projectionPortfolio": [{
+        "caller": "IPAD",
+        "chartType": "current",
+        "isRequired": true,
+        "projectionDuration": 38,
+        "styleName": "FIDELITY Portfolio Evaluator",
+        "goalAdjuster": "TABAPP",
+        "funds": {
+            "balance": 102000
+        },
+        "riskLevel": 8,
+        "msp": {
+            "mspAmount": 2400
+        }
+    }],
+    "authToken": null
+}

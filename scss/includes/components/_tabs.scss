@@ -1,0 +1,73 @@
+/*------------------------------------*\
+    #TABS
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+.tabs-container {
+
+    .tab__label {
+        position: relative;
+        border-top: 2px solid $grey-15;
+        min-height: 20px;
+        z-index: 1;
+
+        h4 {
+            background: $grey-05;
+            position: absolute;
+            left: 30px;
+            top: -15px;
+            padding: 0px 5px;
+        }
+
+        &.tab__label--left {
+            border-left: 2px solid $grey-15;
+        }
+
+        &.tab__label--right {
+            border-right: 2px solid $grey-15;
+        }
+    }
+
+    .tab__item {
+
+        .tab__item__inner {
+            background: $white;
+            border-left: 2px solid $grey-15;
+            border-top: 2px solid $grey-15;
+            border-right: 2px solid $grey-15;
+            transition: all 0.3s ease;
+
+            a {
+                color: $grey-60;
+                text-decoration: none;
+                @include adjust-font-size-to( 24px, 1 );
+                display: block;
+                padding: rhythm( 1, $base-font-size ) gutter( 1, $base-font-size );
+                transition: color 0.3s ease;
+            }
+
+            &:hover {
+                background: $blue-6;
+                border-color: $blue-6;
+
+                a {
+                    color: white;
+                }
+            }
+        }
+
+        &.tab__item--active {
+            .tab__item__inner {
+                background: $blue-6;
+                border-color: $blue-6;
+
+                a {
+                    color: white;
+                }
+            }
+        }
+
+    }
+}

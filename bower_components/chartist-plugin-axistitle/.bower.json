@@ -24,6 +24,6 @@
     "commit": "fa03ca22a2f5b5579a56f768008fe6d808cb0f0a"
   },
   "_source": "https://github.com/alexstanbury/chartist-plugin-axistitle.git",
-  "_target": "^0.1.0",
+  "_target": "~0.1.0",
   "_originalSource": "chartist-plugin-axistitle"
 }

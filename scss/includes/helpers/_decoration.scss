@@ -1,0 +1,71 @@
+/*------------------------------------*\
+    #DECORATION
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+
+// Fidelity colour backgrounds: bg-colorname
+@each $colour in $fidelity-colours {
+
+    .bg-#{ nth( $colour, 1 ) } {
+    	background: #{ nth( $colour, 2 ) };
+    }
+}
+
+// Fidelity gradient background
+.bg-gradient {
+    background: $blue-6;
+    background: linear-gradient( $blue-5, $blue-6 );
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 0.65) 100%), url( '../images/pattern.jpg' );
+}
+
+
+
+// Border radius variations
+.br   { border-radius: $border-radius; }
+.br-t { border-radius: $border-radius $border-radius 0 0; }
+.br-r { border-radius: 0 $border-radius $border-radius 0; }
+.br-b { border-radius: 0 0 $border-radius $border-radius; }
+.br-l { border-radius: $border-radius 0 0 $border-radius; }
+.br-bl { border-radius: 0 0 0 $border-radius; }
+.br-br { border-radius: 0 0 $border-radius 0; }
+
+
+
+// Div with triangle after
+.triangle-after {
+	&:after {
+		@extend %pseudo-element;
+		top: 0;
+		right: -16px;
+		width: 0;
+		height: 0;
+		border-top: 29px solid transparent;
+    	border-bottom: 29px solid transparent;
+    	border-left: 16px solid $white;
+    	z-index: 1;
+	}
+}
+
+// Div that has a div with triangle-after before it
+.triangle-before {
+	padding-left: 16px;
+}
+
+// Colour them
+@each $colour in $fidelity-colours {
+    .bg-#{ nth( $colour, 1 ) } {
+    	&.triangle-after {
+			&:after {
+				border-left: 16px solid #{ nth( $colour, 2 ) };
+			}
+    	}
+    }
+}
+
+// Bottom box shadow
+.shadow {
+    box-shadow: 0px 5px 5px rgba( 0, 0, 0, 0.2 );
+}

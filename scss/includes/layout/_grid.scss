@@ -1,0 +1,161 @@
+/*------------------------------------*\
+    #GRID
+
+    Dependancies: tools/mixins
+
+\*------------------------------------*/
+
+/**
+ * To avoid unwanted space between inline-block elements, .grid__item must be seperated by comments as follows:
+ *
+ * <ul class="grid">
+ *     <li class="grid__item">...</li><!--
+ *     --><li class="grid__item">...</li><!--
+ *     --><li class="grid__item">...</li><!--
+ *     --><li class="grid__item">...</li>
+ * </ul>
+ */
+
+/**
+ * Begin a grid group.
+ */
+.grid,
+%grid {
+    margin: 0 0 0 gutter( -1 );
+    padding: 0;
+    list-style: none;
+}
+
+    /**
+     * 1. Cause columns to stack side-by-side.
+     * 2. Space columns apart.
+     * 3. Full-width unless told to behave otherwise.
+     * 4. Align columns to the tops of each other.
+     */
+    .grid__item,
+    %grid__item {
+        display: inline-block; /* [1] */
+        padding: 0 0 0 gutter( 1 ); /* [2] */
+        width: 100%; /* [3] */
+        vertical-align: top; /* [4] */
+    }
+
+
+/**
+ * grids with no gutters or leading.
+ */
+.grid--half,
+%grid--half {
+    margin: 0 0 0 gutter( -0.5 );
+
+    > .grid__item,
+    > %grid__item {
+        padding-left: gutter( 0.5 );
+    }
+
+}
+
+
+/**
+ * grids with no gutters or leading.
+ */
+.grid--flush,
+%grid--flush {
+    margin-left: 0;
+
+    > .grid__item,
+    > %grid__item {
+        padding-left: 0;
+    }
+
+}
+
+
+/**
+ * Reversed rendered order of grid items, e.g. items 1, 2, 3, 4 in your
+ * markup will display in order 4, 3, 2, 1 on your page.
+ */
+.grid--rev,
+%grid--rev {
+    text-align: left;
+    direction: rtl;
+
+    > .grid__item,
+    > %grid__item {
+        text-align: left;
+        direction: ltr;
+    }
+
+}
+
+
+/**
+ * Align grid items to the vertical centers of each other.
+ */
+.grid--middle,
+%grid--middle {
+
+    > .grid__item,
+    > %grid__item {
+        vertical-align: middle;
+    }
+
+}
+
+
+/**
+ * Align grid items to the vertical bottoms of each other.
+ */
+.grid--bottom,
+%grid--bottom {
+
+    > .grid__item,
+    > %grid__item {
+        vertical-align: bottom;
+    }
+
+}
+
+
+/**
+ * Make the grid items fill up from the right hand side.
+ */
+.grid--right,
+%grid--right {
+    text-align: right;
+
+    > .grid__item,
+    > %grid__item {
+        text-align: left;
+    }
+
+}
+
+
+/**
+ * Make the grid items fill up from the center outward.
+ */
+.grid--center,
+%grid--center {
+    text-align: center;
+
+    > .grid__item,
+    > %grid__item {
+        text-align: left;
+    }
+
+}
+
+
+/**
+ * Cause grid items to take up a non-explicit amount of width.
+ */
+.grid--auto,
+%grid--auto {
+
+    > .grid__item,
+    > %grid__item {
+        width: auto;
+    }
+
+}

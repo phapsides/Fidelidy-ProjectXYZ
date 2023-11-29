@@ -1,0 +1,56 @@
+/*------------------------------------*\
+    #BADGES
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+.badge {
+	display: inline-block;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.7em; // Have to account for stupid font
+    text-align: center;
+    color: $white;
+}
+
+
+// Coloured badges
+@each $colour in $fidelity-colours {
+    .badge--#{ nth( $colour, 1 ) } {
+    	background: #{ nth( $colour, 2 ) };
+    }
+}
+
+
+// Padded titles with badges
+.title-badged {
+    position: relative;
+    padding-left: gutter( 3 );
+
+    @include respond-to( tablet ) {
+        padding-left: gutter( 2.5 );
+    }
+
+    @include respond-to( mobile ) {
+        padding-left: gutter( 2 );
+    }
+
+    .badge {
+        position: absolute;
+        top: -9px;
+        left: 0;
+
+        // top: 45%;
+        // transform: translate( 0, -50% );
+
+        @include respond-to( tablet ) {
+            top: -8px;
+        }
+
+        @include respond-to( mobile ) {
+            top: -4px;
+        }
+    }
+}

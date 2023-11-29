@@ -1,0 +1,336 @@
+/*------------------------------------*\
+    #SITE-NAV
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+.site-nav {
+	//
+}
+
+	.site-nav__logo {
+		@extend %hide-text;
+		background: url( '#{$image-path}/logo.png' ) left top no-repeat;
+		display: block;
+		width: 195px;
+		height: rhythm( 3 );
+		float: left;
+
+		@include respond-to( retina ) {
+            background: url( '#{$image-path}/logo@2x.png' ) left top no-repeat;
+            background-size: 195px rhythm( 3 );
+        }
+
+        @include respond-to( tablet ) {
+        	background: url( '#{$image-path}/logo-mobile.png' ) left top no-repeat;
+			width: 60px;
+
+			float: none;
+			display: block;
+
+			@include respond-to( retina ) {
+	            background: url( '#{$image-path}/logo-mobile@2x.png' ) left top no-repeat;
+	            background-size: 60px rhythm( 3 );
+	        }
+		}
+
+
+
+        .site-header.site-header--fixed & {
+        	width: 150px;
+			height: 46px; // ( rhythm( 2.5 ) - 4px ) // to account for line-height
+			margin: 7px 0;
+
+			background: url( '#{$image-path}/logo-mobile-small.png' ) left top no-repeat;
+
+			@include respond-to( retina ) {
+	            background: url( '#{$image-path}/logo-mobile-small@2x.png' ) left top no-repeat;
+	            background-size: 46px 46px;
+	        }
+        }
+	}
+
+
+	.site-nav__burger-container {
+		position: absolute;
+		top: 0;
+		display: none;
+
+		@include respond-to( tablet ) {
+			display: inline-block;
+			right: ( gutter( 2 ) - 12px ); // It has to fit in contented
+		}
+
+		@include respond-to( mobile ) {
+			right: ( gutter( 1 ) - 12px );
+		}
+
+		@include respond-to( min ) {
+			right: ( gutter( 0.5 ) - 12px );
+		}
+
+		.site-header.site-header--fixed & {
+			top: -7px;
+		}
+	}
+
+
+	.site-nav__right {
+		display: inline-block;
+		float: right;
+		padding: 18px 0 14px 0;
+
+		.nav__item {
+			margin-left: gutter( 1.75 );
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+
+		.site-header.site-header--fixed & {
+			padding: 16px 0;
+
+			&.site-nav__right--visible {
+				padding: rhythm( 2 ) 0;
+			}
+		}
+
+		@include respond-to( tablet ) {
+			float: none;
+			display: none;
+
+			&.site-nav__right--visible {
+				display: block;
+				padding: rhythm( 2 ) 0;
+				// max-width: $min-width; // temp
+
+
+				.nav__item {
+					display: inline-block;
+					margin-left: 0;
+					margin-right: gutter( 2 ); // temp
+					margin-bottom: rhythm( 1.5 );
+
+					// Animate it in
+					@include animation( fadeInRight, 0.3s, ease-out );
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+
+
+	.text-link.nav__item {
+		&.nav__item--active {
+			&:after {
+				background: $blue-3;
+				// The active menu item is underlined by default
+            	transform: scaleX( 1 );
+			}
+		}
+	}
+
+
+
+	// NAV DROPDOWN
+	.nav__item--dropdown {
+		display: inline-block;
+		position: relative;
+
+		@include respond-to( tablet ) {
+			display: block !important;
+			margin-right: 0 !important;
+		}
+
+		.nav__dropdown-trigger {
+			position: relative;
+			padding: 21px 30px 21px 0;
+			text-decoration: none;
+
+			&:after {
+				@extend %pseudo-element;
+			    top: 50%;
+			    right: 0;
+			    height: 0;
+			    width: 0;
+			    border: 6px solid transparent;
+			    margin-top: 2px;
+			    transform: translate( -50%, -50% );
+			    border-top-color: $white;
+			}
+
+			@include respond-to( tablet ) {
+				pointer-events: none;
+			}
+		}
+
+		.nav__dropdown {
+			position: absolute;
+			top: 44px;
+			left: -61px;
+			width: 300px;
+
+			// Skin
+			background: $nav-dropdown;
+
+			// Hide
+			display: none;
+
+			// Discontented
+			@include respond-to( tablet ) {
+		        margin-right: gutter( -2 );
+		        margin-left: gutter( -2 );
+
+		        // Not contented
+		        position: static;
+				display: block;
+				width: auto;
+				background: none;
+				overflow: hidden;
+				margin-top: 0;
+		    }
+		    @include respond-to( mobile ) {
+		        margin-right: gutter( -1 );
+		        margin-left: gutter( -1 );
+		    }
+		    @include respond-to( min ) {
+		        margin-right: gutter( -0.5 );
+		        margin-left: gutter( -0.5 );
+		    }
+
+
+			ul {
+				position: relative;
+				display: block;
+				padding: 10px 0;
+
+				// Contented
+				@include respond-to( tablet ) {
+			        margin-right: gutter( 2 );
+			        margin-left: gutter( 2 );
+			    }
+			    @include respond-to( mobile ) {
+			        margin-right: gutter( 1 );
+			        margin-left: gutter( 1 );
+			    }
+			    @include respond-to( min ) {
+			        margin-right: gutter( 0.5 );
+			        margin-left: gutter( 0.5 );
+			    }
+
+				&:after {
+					@extend %pseudo-element;
+					top: 0;
+				    right: 146px;
+				    height: 0;
+				    width: 0;
+				    border: 8px solid transparent;
+				    transform: translate( -50%, -100% );
+				    border-bottom-color: $nav-dropdown;
+
+				    @include respond-to( tablet ) {
+				    	right: auto;
+				    	left: 167px;
+				    }
+				}
+
+				li {
+					display: block;
+					padding: rhythm( 0.25 ) gutter( 1 ) ( rhythm( 0.25 ) - 3px ) gutter( 1 );
+					transition: background 0.3s ease;
+
+					@include respond-to( tablet ) {
+						padding: 0;
+					}
+
+					a {
+						color: $white;
+						text-decoration: none;
+
+						@include respond-to( tablet ) {
+							padding-top: 10px;
+							padding-bottom: 8px;
+						}
+					}
+
+					&:hover {
+						background: $nav-dropdown-item;
+					}
+				}
+			}
+		}
+
+
+		&:hover {
+			@media ( min-width: $tablet-width ) {
+				.nav__dropdown {
+					@include animation( fadeIn, 0.3s, ease-out );
+					display: block;
+
+					ul li {
+						@include animation( fadeInRight, 0.3s, ease-out );
+						animation-fill-mode: backwards; // Stops it from waiting for delays before dissapearing
+					}
+				}
+			}
+		}
+	}
+
+
+	.nav__item--login {
+		float: right;
+		margin-top: 12px;
+		margin-left: gutter( 1.75 );
+
+		@include respond-to( tablet ) {
+			position: absolute;
+			top: 12px;
+			right: 120px;
+			margin: 0;
+
+			.site-header--fixed & {
+				top: 5px;
+			}
+		}
+
+		@include respond-to( mobile ) {
+			right: 85px;
+
+			.site-header--fixed & {
+				top: 5px;
+			}
+		}
+
+		@include respond-to( min ) {
+			right: 63px;
+		}
+	}
+
+
+	.nav__item--phone {
+		@include respond-to( desktop ) {
+			display: none;
+		}
+
+		@include respond-to( tablet ) {
+			display: block;
+		}
+	}
+
+
+
+
+// Animation delays
+@for $i from 1 through 10 {
+	.site-header .site-nav__right--visible .nav__item:nth-child( #{$i} ) {
+		animation-delay: #{ $i * 50 }ms;
+	}
+
+	.site-header .nav__item--dropdown:hover .nav__dropdown ul li:nth-child( #{$i} ) {
+		animation-delay: #{ $i * 50 }ms;
+	}
+}

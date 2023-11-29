@@ -1,0 +1,672 @@
+
+/*------------------------------------*\
+    #CHARTIST
+
+    Dependencies: settings/variables,
+                  definitions/animations
+
+    https://github.com/gionkunz/chartist-js
+    https://github.com/alexstanbury/chartist-plugin-axistitle
+
+\*------------------------------------*/
+
+svg.ct-chart-line {
+    overflow: visible;
+}
+
+#graph-container {
+    position: relative;
+    perspective: 500px;
+    transform-style: preserve-3d;
+    padding-top: 10px;
+    z-index: 1;
+
+    .ct-chart {
+        height: 398px;
+        width: 100%;
+    }
+
+    .graph__key {
+        position: absolute;
+        top: 40px;
+        left: 150px;
+        width: 160px;
+        z-index: 55;
+
+        ul li {
+            position: relative;
+            list-style: none;
+            transform: rotateX( -95deg );
+            transform-origin: top;
+            opacity: 0;
+            &.cash {
+                background: $grey-15;
+
+                &:after {
+                    content: '';
+                    height: 4px;
+                    width: 25px;
+                    background: #000;
+                    position: absolute;
+                    top: 15px;
+                    right: 22px;
+                }
+            }
+			&.average {
+                background: $grey-15;
+
+                &:after {
+                    content: '';
+                    height: 4px;
+                    width: 25px;
+                    background: #FFF;
+                    position: absolute;
+                    top: 15px;
+                    right: 22px;
+                }
+            }
+			
+
+            &.median {
+                background: $grey-60;
+                color: $white;
+
+                &:after {
+                    content: '';
+                    height: 4px;
+                    width: 25px;
+                    background: $white;
+                    position: absolute;
+                    top: 15px;
+                    right: 22px;
+                }
+            }
+
+            .graph__key__chance {
+                position: absolute;
+                top: 0px; right: 0px;
+                height: 100%;
+                pointer-events: none;
+                opacity: 0;
+                transform: translateX( 40% );
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+
+            &:hover .graph__key__chance {
+                opacity: 1;
+                transform: translateX( 100% );
+            }
+
+            @include respond-to( tablet ) {
+                @include adjust-font-size-to( 14px, 1.4 );
+                padding-bottom: 2px;
+
+                &.cash:after,
+                &.median:after,
+				&average:after{
+                    right: 0px;
+                    width: 10px;
+                }
+            }
+        }
+
+        &.graph__key--visible {
+
+            ul li {
+                transform: rotateX( 0deg );
+                opacity: 1;
+                transition: transform 0.2s ease-out, opacity 0.2s ease;
+                @for $i from 1 through 5 {
+                    &:nth-of-type(#{$i}) {
+                        transition-delay: #{($i - 1) * 100}ms;
+                    }
+                }
+            }
+        }
+
+        @include respond-to( tablet ) {
+            left: gutter( 0 );
+            top: 10px;
+            width: 80px;
+
+            .graph__key__chance {
+                width: 115px;
+            }
+        }
+    }
+
+    .graph-point {
+        position: absolute;
+        width: 20px; height: 20px;
+        background: #3e4552;
+        border-radius: 100%;
+        box-shadow: 0px 10px 10px rgba( 0, 0, 0, 0.3 );
+        transform: scale( 0.1 ) translateX( -50% );
+        transition: transform 0.6s cubic-bezier(0.680, -0.550, 0.265, 1.550), opacity 0.6s ease;
+        transform-origin: left center;
+        z-index: 51;
+        border: 1px solid #525c6c;
+        pointer-events: none;
+        opcaity: 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.graph-point--visible {
+            transform: scale( 1 ) translateX( -50% );
+            opacity: 1;
+        }
+
+        // Left arrow
+        &:before {
+            content: '';
+            position: absolute;
+            top: 2px; left: -12px;
+            width: 0;
+        	height: 0;
+        	border-top: 7px solid transparent;
+        	border-bottom: 7px solid transparent;
+        	border-right: 7px solid #3e4552;
+            animation-name: bounceLeft;
+            animation-iteration-count: infinite;
+            animation-duration: 0.6s;
+        }
+
+        // Right arrow
+        &:after {
+            content: '';
+            position: absolute;
+            top: 2px; right: -12px;
+            width: 0;
+        	height: 0;
+        	border-top: 7px solid transparent;
+        	border-bottom: 7px solid transparent;
+        	border-left: 7px solid #3e4552;
+            animation-name: bounceRight;
+            animation-iteration-count: infinite;
+            animation-duration: 0.6s;
+        }
+    }
+
+    .graph-overlay {
+        display: none;
+        position: absolute;
+        top: 10px; right: 0; bottom: 90px;
+        width: gutter( 10 );
+        background-color: rgba(38, 38, 38, 0.87);
+        padding-bottom: rhythm( 2 );
+        text-align: center;
+        z-index: 105;
+
+        .graph-overlay__close {
+            position: absolute;
+            top: rhythm( 1 ); right: gutter( 1 );
+        }
+
+        .btn {
+            position: absolute;
+            bottom: rhythm( 0.5 ); left: gutter( 0.5 ); right: gutter( 0.5 );
+        }
+
+        @include respond-to( tablet ) {
+            display: block;
+        }
+
+        @include respond-to( mobile ) {
+            width: 100%;
+        }
+    }
+}
+
+.graph-tooltip {
+    // background: $white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.53);
+    margin-right: -9999px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: scale( 0 ) translate( -50%, 0% );
+    transform-origin: left center;
+    transition: transform 0.6s cubic-bezier(0.680, -0.550, 0.265, 1.550), opacity 0.6s ease;
+    width: 215px;
+    z-index: 100;
+    &:after {
+        bottom: -10px; left: 50%;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid $white;
+        content: '';
+	    height: 0;
+        position: absolute;
+        transform: translateX( -50% );
+        width: 0;
+    }
+    &.graph-tooltip--visible {
+        transition-delay: 0.4s;
+        transform: scale( 1 ) translate( -50%, 0% );
+        opacity: 1;
+    }
+    .average {
+        display: block;
+        
+    }
+    .amount {
+        font-weight: bold;
+    }
+    .rhythm-m-b-1 {
+        margin-bottom: 10px;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+.graph-tooltip {
+    .colour,
+    .label,
+    .percentage {
+        float: left;
+        font-size: 16px;
+    }
+    .percentage {
+        display: block;
+        margin-top: 28px;
+    }
+    .colour {
+        border: 1px solid;
+        height: 18px;
+        margin-right: 5%;
+        margin-top: 2.5%;
+        width: 10%;
+    }
+    .label {
+        margin-right: 5%;
+        width: 60%;
+    }
+    .percentage {
+        width: 20%;
+    }
+}
+
+.graph-tooltip__header {
+    border-bottom: 1px solid $grey-15;
+}
+
+
+
+.ct-axis-title,
+.ct-label {
+    fill: $blue-1;
+    @include adjust-font-size-to( 14px, 1.4 );
+}
+
+.ct-grids {
+    background-color: #efeff0;
+
+    &:hover {
+        cursor: grab;
+    }
+
+    &.ct-grids--grabbing {
+        cursor: grabbing;
+    }
+
+    rect {
+        pointer-events: none;
+    }
+}
+
+.ct-grid {
+    stroke: rgba( 255, 255, 255, 0.4 );
+    stroke-opacity: 0;
+    pointer-events: none;
+}
+
+.ct-point {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ct-line {
+    stroke-width: 1px;
+    stroke-opacity: 0.0;
+    pointer-events: none;
+}
+
+.ct-area {
+    animation-name: scaleY;
+    -moz-animation-name: none;
+    // Firefox has issues setting a transform origin on svg elements
+    // so we have had to disable the animation on firefox
+    animation-duration: 0.7s;
+    animation-fill-mode: both;
+    transform-origin: bottom;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    fill-opacity: 1;
+    pointer-events: none;
+}
+
+.ct-series-a {
+    .ct-area {
+        animation-delay: 0s;
+        fill: $blue-1;
+    }
+}
+.ct-series-b {
+    .ct-area {
+        animation-delay: 0.1s;
+        fill: $blue-2;
+    }
+}
+// Average
+.ct-series-c {
+    .ct-area {
+        animation-delay: 0.2s;
+        fill: $blue-2;
+    }
+    .ct-line {
+        stroke-width: 2px;
+        stroke: $white;
+        stroke-opacity: 1.0;
+        animation-name: fadeIn;
+        animation-duration: 1s;
+        animation-delay: 1s;
+        animation-fill-mode: both;
+    }
+}
+.ct-series-d {
+    .ct-area {
+        animation-delay: 0.3s;
+        fill: $blue-3;
+    }
+}
+// Cash
+.ct-series-e {
+    .ct-line {
+        stroke: darken( $green-2, 70% );
+        stroke-opacity: 1;
+        stroke-width: 3px;
+        animation-name: fadeIn;
+        animation-duration: 1s;
+        animation-delay: 1s;
+        animation-fill-mode: both;
+    }
+    .ct-area {
+        animation-delay: 0.4s;
+        fill: transparent;
+    }
+}
+// Poor minimum
+.ct-series-f {
+    .ct-area {
+        fill: $grey-05;
+    }
+}
+
+.ct-label.ct-vertical,
+.ct-label.ct-horizontal{
+    color: $blue-1;
+}
+
+.ct-vertical,
+.ct-horizontal {
+    animation-name: fadeIn;
+    animation-duration: 0.7s;
+    animation-fill-mode: both;
+    transform-origin: bottom;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+    @for $i from 1 through 60 {
+       	&:nth-of-type(#{$i}) {
+            animation-delay: #{$i * 100}ms;
+        }
+    }
+}
+
+.graph-container {
+    position: relative;
+    padding-top: 40px;
+}
+
+.graph-line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: $grey-85;
+    background: linear-gradient(to bottom, rgba(30,87,153,0) 0%,$grey-85 10%,$grey-85 90%,rgba(30,87,153,0) 100%); ;
+    z-index: 50;
+    box-shadow: 0px 0px 20px white;
+    pointer-events: none;
+}
+
+.graph__input-container {
+    display: inline-block;
+    max-width: 80%;
+}
+
+.risk-explanation {
+    position: relative;
+    background: #d3ebd7;
+
+    .risk-explanation__pointer {
+        position: absolute;
+        width: 0; height: 0;
+        top: -10px;
+        left: 50%;
+        border-left: 10px solid transparent;
+	    border-right: 10px solid transparent;
+	    border-bottom: 10px solid #d3ebd7;
+        will-change: left;
+        transition: left 0.6s ease;
+        transform: translateX( -50% );
+    }
+}
+
+.risk-select-container {
+
+    .risk-select {
+        position: relative;
+        min-height: rhythm( 4 );
+        text-align: center;
+        padding-top: rhythm( 3 );
+
+        .icon {
+            opacity: 0;
+            position: absolute;
+            top: rhythm( 1 );
+            left: 50%;
+            display: block;
+            transform: translate( -50%, 0 ) scale( 0.5 );
+            transition: opacity 0.4s ease, transform 0.4s ease;
+
+            &:after {
+                color: $green-1;
+                @include adjust-font-size-to( 32px );
+            }
+        }
+
+        .number-badge {
+            opacity: 1;
+            position: absolute;
+            top: rhythm( 1 );
+            left: 50%;
+            transform: translate( -50%, 0 ) scale( 1 );
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        &.active {
+            border-color: $green-1;
+            box-shadow: inset 0 0 0 2px $green-1;
+
+            .icon {
+                opacity: 1;
+                transform: translate( -50%, 0 ) scale( 1 );
+            }
+
+            .number-badge {
+                opacity: 0;
+                transform: translate( -50%, 0 ) scale( 0 );
+            }
+        }
+    }
+}
+
+.show-settings {
+    display: none;
+    border: 1px solid $grey-25;
+    color: $blue-6;
+    text-decoration: none;
+
+    @include respond-to( tablet ) {
+        display: block;
+    }
+}
+
+.graph-inputs {
+    margin-top: 10px;
+    position: relative;
+    .graph-inputs__close,
+    .graph-inputs__submit {
+        display: none;
+    }
+
+    label {
+        @include adjust-font-size-to( 16px );
+    }
+
+    .graph-overlay {
+        position: absolute;
+        top: 0; left: gutter( 1 ); right: 0; bottom: 40px;
+        background-color: rgba(38, 38, 38, 0.87);
+        padding-bottom: rhythm( 2 );
+
+        .graph-overlay__close {
+            position: absolute;
+            top: rhythm( 1 ); right: gutter( 1 );
+        }
+
+        .btn {
+            position: absolute;
+            bottom: rhythm( 0.5 ); left: gutter( 0.5 ); right: gutter( 0.5 );
+        }
+    }
+}
+
+.graph-inputs .graph-inputs__close {
+    display: none;
+}
+
+@include respond-to( tablet ) {
+    .graph-inputs {
+        position: fixed;
+        top: 0px; left: 0px;
+        height: 100%; width: 100%;
+        z-index: 20000;
+        background: $blue-6;
+        background: rgba( 64, 71, 85, 0.95 );
+        padding: rhythm( 2 ) gutter( 2 );
+        margin-top: 0px;
+
+        label {
+            color: $white;
+        }
+
+        .graph-inputs__submit {
+            display: block;
+        }
+
+        .graph-inputs__close {
+            display: block;
+            position: absolute;
+            top: rhythm( 1 );
+            right: gutter( 1 );
+        }
+    }
+}
+
+.graph-section {
+    .ct-series-a {
+        .ct-area {
+            animation-delay: 0s;
+            fill: $blue-1;
+        }
+    }
+    .ct-series-b {
+        .ct-area {
+            animation-delay: 0.1s;
+            fill: $blue-2;
+        }
+    }
+    // Poor
+    .ct-series-c {
+        .ct-line {
+            stroke: transparent;
+        }
+        .ct-area {
+            animation-delay: 0.3s;
+            fill: $blue-3;
+        }
+    }
+    // Cash
+    .ct-series-d {
+
+        .ct-line {
+            stroke: darken( $green-2, 70% );
+            stroke-opacity: 1;
+            stroke-width: 3px;
+            animation-name: fadeIn;
+            animation-duration: 1s;
+            animation-delay: 1s;
+            animation-fill-mode: both;
+        }
+        .ct-area {
+            animation-delay: 0.4s;
+            fill: transparent;
+        }
+    }
+    // Average line
+    .ct-series-e {
+        .ct-line {
+            stroke: $white;
+            stroke-opacity: 1;
+            stroke-width: 3px;
+            animation-name: fadeIn;
+            animation-duration: 1s;
+            animation-delay: 1s;
+            animation-fill-mode: both;
+        }
+        .ct-area {
+            animation-delay: 0.4s;
+            fill: transparent;
+        }
+    }
+
+}
+
+.graph-spinner {
+    display: none;
+}
+
+.graph-loading {
+    .graph-spinner {
+        display: block;
+    }
+
+    .graph-line {
+        display: none;
+    }
+
+    .graph-point {
+        display: none;
+    }
+
+    .graph__key {
+        display: none;
+    }
+
+    .ct-chart {
+        display: none;
+    }
+}

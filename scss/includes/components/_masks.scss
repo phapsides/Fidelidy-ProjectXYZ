@@ -1,0 +1,69 @@
+/*------------------------------------*\
+    #MASKS
+
+    Dependancies: definitions/patterns
+
+\*------------------------------------*/
+
+/*
+ * Image container to ensure images don't leave whitespace without distorting them.
+ *
+ * 1. Requires an absolute height to function if it's not contained within another element.
+ * 2. Fixes overflow temporarily not taking effect during transitions: https://code.google.com/p/chromium/issues/detail?id=157218
+ */
+.image-fill-mask {
+    display: block;
+    position: relative;
+    transform: scale( 1 ); /* [2] */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    // height: 300px /* [1] */
+}
+
+    /*
+     * 1. Start the image from the center of the container.
+     * 2. Transform it so it's always in the center.
+     * 3. Ensure the image fills at least the parent width.
+     * 4. Ensure the image fills at least the parent height.
+     * 5. Let it overflow so it's cropped, not stretched.
+     * 6. Let it overflow so it's cropped, not stretched.
+     * 7. Max sure the image is never stretched and this class wins.
+     * 8. Trying to fix glitchy image display where the image appears warped somewhere else on the page...
+     * 8. Added a negative z-index if we need this anywhere else we can add it to the z-indexed elements.
+     */
+    .image-fill-mask__image {
+        display: block;
+        position: absolute; /* [1] */
+        top: 50%; /* [1] */
+        left: 50%; /* [1] */
+        transform: translate( -50%, -50% ) scale( 1 ); /* [2] */ /* [8] */
+        width: auto !important; /* [7] */
+        min-width: 100.5%; /* [3] */
+        max-width: none; /* [5] */
+        min-height: 100.5%; /* [4] */
+        max-height: none; /* [6] */
+        z-index: -1; /* [9] */
+        
+    }
+
+
+// Specific
+.case-studies-mask {
+    @include respond-to( tablet ) {
+
+        overflow: visible;
+
+        .image-fill-mask__image {
+            display: none;
+        }
+
+        .bg-white {
+            background: $blue-5;
+
+            .text-blue-5 {
+                color: $white;
+            }
+        }
+    }
+}

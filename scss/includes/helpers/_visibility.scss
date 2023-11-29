@@ -1,0 +1,116 @@
+/*------------------------------------*\
+    #VISIBILITY
+
+    Dependancies: settings/variables
+                  tools/mixins
+
+\*------------------------------------*/
+
+/*
+ * Hide visually and from screen readers:
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ */
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+@each $breakpoint in $breakpoints {
+
+    @media #{ nth( $breakpoint, 2 ) } {
+        .#{ nth( $breakpoint, 1 ) }-hidden {
+            display: none !important;
+            visibility: hidden !important;
+        }
+    }
+}
+
+@each $breakpoint in $breakpoints {
+
+    .#{ nth( $breakpoint, 1 ) }-visible {
+        display: none;
+
+        @media #{ nth( $breakpoint, 2 ) } {
+            display: block;
+        }
+    }
+}
+
+
+@each $breakpoint in $breakpoints {
+
+    .#{ nth( $breakpoint, 1 ) }-visible--inline {
+        display: none;
+
+        @media #{ nth( $breakpoint, 2 ) } {
+            display: inline;
+        }
+    }
+}
+
+
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.visuallyhidden {
+    position: absolute !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect( 0 0 0 0 ) !important;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+.visuallyhidden--focusable:active,
+.visuallyhidden--focusable:focus {
+    position: static !important;
+    margin: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+    visibility: hidden !important;
+}
+
+
+
+// IE
+.only-oldie {
+    display: none;
+    .oldie & {
+        display: inherit;
+    }
+    .old & {
+        display: inherit;
+    }
+}
+
+.hide-oldie {
+    .oldie & {
+        display: none;
+    }
+    .old & {
+        display: none;
+    }
+}
+
+.hide-old {
+    .old & {
+        display: none;
+    }
+}

@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    #Z-INDEX
+
+    http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-layouts/
+
+\*------------------------------------*/
+
+/**
+ * Declare an array of elements with the desired highest z-index last:
+ *
+ * $elements: "side-nav-overlay", "side-nav", "site-nav", "loading-bar";
+ *
+ * Use it as:
+ * z-index: index( $elements, "side-nav" );
+ *
+ * Will compile to:
+ * z-index: 2;
+ *
+ */
+
+$elements: "site-footer", "site-content", "site-header", "overlay", "select-list", "video-box", "video-close", "lightbox", "lightbox-close";

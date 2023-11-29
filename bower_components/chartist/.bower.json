@@ -43,6 +43,6 @@
     "commit": "beabb2793ab67da84cadc0b91d5fd509f2cdfc55"
   },
   "_source": "https://github.com/gionkunz/chartist-js.git",
-  "_target": "^0.9.8",
+  "_target": "~0.9.4",
   "_originalSource": "chartist"
 }

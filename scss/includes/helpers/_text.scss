@@ -1,0 +1,110 @@
+/*------------------------------------*\
+    #TEXT
+
+    Dependancies: settings/variables
+
+\*------------------------------------*/
+
+.text-upper {
+    text-transform: uppercase;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+// Coloured text
+@each $colour in $fidelity-colours {
+
+    .text-#{ nth( $colour, 1 ) } {
+        color: #{ nth( $colour, 2 ) };
+    }
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+    .text-truncate-no-mobile {
+        @include respond-to( mobile ) {
+            white-space: normal;
+        }
+    }
+
+.text-break {
+    word-break: break-all;
+}
+
+
+.text-line-1 {
+    line-height: 1;
+}
+
+@each $breakpoint in $breakpoints {
+
+    @media #{ nth( $breakpoint, 2 ) } {
+        .#{ nth( $breakpoint, 1 ) }-text-upper { text-transform: uppercase; }
+        .#{ nth( $breakpoint, 1 ) }-text-left { text-align: left; }
+        .#{ nth( $breakpoint, 1 ) }-text-right { text-align: right; }
+        .#{ nth( $breakpoint, 1 ) }-text-center { text-align: center; }
+        .#{ nth( $breakpoint, 1 ) }-text-nowrap { white-space: nowrap; }
+        .#{ nth( $breakpoint, 1 ) }-text-truncate {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+}
+
+.text-weight-normal {
+    font-weight: normal;
+}
+
+.text-weight-bold {
+    font-weight: bold;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-underline {
+    &:after {
+        @extend %underline;
+        transform: scaleX( 1 );
+
+        &.h1, .h1 & {
+            bottom: 3px;
+        }
+    }
+}
+
+@each $colour in $fidelity-colours {
+    .text-underline-#{ nth( $colour, 1 ) } {
+        &:after {
+            background: #{ nth( $colour, 2 ) };
+        }
+    }
+    .text-#{ nth( $colour, 1 ) } {
+        .text-underline {
+            &:after {
+                background: #{ nth( $colour, 2 ) };
+            }
+        }
+    }
+}

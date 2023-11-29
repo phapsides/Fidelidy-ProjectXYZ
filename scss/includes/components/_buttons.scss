@@ -1,0 +1,239 @@
+/*------------------------------------*\
+    #BUTTONS
+
+    Dependancies: settings/variables
+                  tools/mixins
+                  definitions/patterns
+\*------------------------------------*/
+
+/*
+ * -2px is to account for the line-height of the font. This has to be in proportion with the
+ * translation of icons.
+ */
+
+/*
+ * Base button structure required by ALL buttons.
+ * Use with `.btn--default` and optionally other variants.
+ */
+.btn {
+    @include adjust-font-size-to( $base-font-size, 1.4 );
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    padding: rhythm( 0.75 ) gutter( 1 ) ( rhythm( 0.75 ) - 4px ) gutter( 1 ); /* [1] */
+}
+
+/*
+ * Taller button with increased vertical padding
+ */
+.btn--large {
+    padding: rhythm( 1 ) gutter( 1 ) ( rhythm( 1 ) - 5px ) gutter( 1 ); /* [1] */
+}
+
+/*
+ * Smaller button with decreased vertical padding
+ */
+.btn--small {
+    @include adjust-font-size-to( 16px, 1.2 );
+    padding: rhythm( 0.35 ) gutter( 0.75 ) ( rhythm( 0.35 ) - 2px ) gutter( 0.75 ); /* [1] */
+
+    &:after {
+        @include adjust-font-size-to( 16px, 1.2 );
+    }
+}
+
+/*
+ * Button with small text, large padding, and thick borders
+ */
+.btn--small-padded {
+    @include adjust-font-size-to( 14px, 1.2 );
+    letter-spacing: -0.5px;
+    padding: rhythm( 0.75 ) gutter( 0.5 ) ( rhythm( 0.75 ) - 2px ) gutter( 0.5 ); /* [1] */
+
+    &:after {
+        @include adjust-font-size-to( 16px, 1.2 );
+    }
+}
+
+
+/*
+ * Base button style required by ALL buttons.
+ */
+.btn--default {
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    // border-radius: $border-radius;
+    background: $text-colour-inverted;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: $text-colour;
+    font-weight: 300;
+
+    &:not([disabled]):hover {
+        background-color: $text-colour;
+        color: $text-colour-inverted;
+    }
+
+    &[disabled] {
+        opacity: 0.5;
+    }
+
+    &.icon{
+        text-align: left;
+        white-space: nowrap;
+
+        &.icon--large {
+            &:after {
+                @include adjust-font-size-to( 30px, 1.4 );
+            }
+        }
+
+        &:after {
+            float: none;
+            margin-left: gutter( 0.75 );
+        }
+    }
+}
+
+
+/*
+ * html button - <button> centers text anyway, doesn't need the padding, breaks words on small screens
+ */
+
+ /*button.btn,*/
+.btn--html-button{
+    padding-left: gutter( 0.25 );
+    padding-right: gutter( 0.25 );
+}
+
+
+// Coloured buttons
+@each $colour in $fidelity-colours {
+
+    .btn--#{ nth( $colour, 1 ) } {
+        @include button-factory( #{ nth( $colour, 2 ) }, #ffffff, map-get( $fidelity-colours-darkened, #{ nth( $colour, 1 ) } ), "", #{ nth( $colour, 2 ) } );
+    }
+}
+
+// Buttons that need black text colour
+.btn--grey-25, .btn--grey-15, .btn--grey-03, .btn--white, .btn--yellow-2 {
+    color: $text-colour;
+    &:not([disabled]):hover {
+        color: $text-colour;
+    }
+}
+
+
+
+@each $colour in $fidelity-colours {
+    .btn--transparent {
+        &.btn--#{ nth( $colour, 1 ) } {
+            &:not([disabled]):hover {
+                background: #{ nth( $colour, 2 ) };
+                color: $white;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+// Unfortunately some variations will have to be hard-coded
+.btn--transparent {
+
+    &.btn--white {
+        &:not([disabled]):hover {
+            background: $white;
+            color: $text-colour;
+            opacity: 1;
+        }
+    }
+}
+
+
+
+.btn--transparent {
+    box-shadow: inset 0 0 0 2px $text-colour;
+    background-color: transparent;
+    color: $text-colour;
+
+    &:not([disabled]):hover {
+        background: $text-colour;
+        color: $text-colour-inverted;
+    }
+
+    .old & {
+        border: 2px solid $text-colour;
+    }
+}
+
+
+
+
+/*
+ * Uppercase text, font size adjusted
+ */
+.btn--upper {
+    @include button-factory( "", "", "", "", "", 17px );
+    text-transform: uppercase;
+}
+
+
+
+
+/*------------------------------------*\
+    #BUTTONS WITH FIXED ICONS
+\*------------------------------------*/
+
+/*
+ * In most situations 'icon' classes can just be added to a button as normal, the btn--icon classes are
+ * only neccessary if a fixed icon is required. Using these classes ensures the icon
+ * will always be in the middle (vertically) of the button and a fixed distance from the left/right
+ */
+
+/*
+ * Button with icon before the text
+ */
+.btn--icon-before {
+    position: relative;
+    padding-left: gutter( 2.5 );
+}
+
+/*
+ * Button with icon after the text
+ */
+.btn--icon-after {
+    position: relative;
+    padding-right: gutter( 2.5 );
+    text-align: left;
+}
+
+    /*
+     * 1. Using font icons so overwrite font-size / line-height for consistancy.
+     * 2. Keep the icon in the middle of the button when broken over multiple lines.
+     * 3. Better vertical alignment of icon as block level
+     * 4. Don't need to compensate for vertical alignment issues as it's absolutely positioned
+     */
+    .btn__icon {
+        display: block;
+        position: absolute;
+        top: 50%; /* [2] */
+        transform: translate( 0, -50% ); /* [2] */
+        line-height: 0.5; /* [3] */
+
+        &:before {
+            transform: none; /* [4] */
+        }
+
+        &:after {
+            @include adjust-font-size-to( 23px, 1 ); /* [1] */
+            transform: translate( 0, 1px );
+        }
+
+        .btn--icon-before & { left: gutter( 1 ); }
+        .btn--icon-after & { right: gutter( 0.5 ); }
+
+        .old & {
+            top: 17px;
+        }
+    }

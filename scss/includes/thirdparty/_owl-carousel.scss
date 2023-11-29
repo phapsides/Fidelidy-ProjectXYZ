@@ -1,0 +1,129 @@
+/*------------------------------------*\
+    #CHARTIST
+
+    Dependencies: settings/variables
+
+    http://smashingboxes.github.io/OwlCarousel2/
+
+\*------------------------------------*/
+
+.owl-carousel {
+
+	@include respond-to( tablet ) {
+		display: block;
+		margin: 0 auto;
+		max-width: 100%;
+	}
+
+	.owl-stage-outer {
+		overflow: visible;
+	}
+
+	// Override grid widths
+	.grid__item {
+		padding-left: 0;
+		width: 100%;
+	}
+}
+
+
+	// Dots
+	.owl-dots {
+		display: block;
+		width: 210px;
+		margin: 0 auto;
+		text-align: center;
+
+		.owl-dot {
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			margin: 0 10px;
+			border-radius: 50%;
+
+			// Skin
+			background: $border-colour;
+
+			&.active {
+				// Skin
+				background: $green-1;
+			}
+		}
+	}
+
+
+
+// Specific
+// Graph risk
+.owl-carousel.risk-select-container {
+	@include respond-to( tablet ) {
+		width: 210px;
+	}
+}
+
+
+// Fund select
+.owl-carousel.funds-container {
+
+	.owl-item {
+		transition: opacity 0.5s ease;
+		opacity: 0.5;
+
+		.btn.funds-select {
+			pointer-events: none;
+		}
+
+		&.active {
+			opacity: 1;
+
+			.btn.funds-select {
+				pointer-events: auto;
+			}
+		}
+	}
+
+	@include respond-to( tablet ) {
+		width: 400px;
+	}
+	@include respond-to( mobile ) {
+		width: 260px;
+	}
+}
+
+
+
+// Account select
+.owl-carousel.accounts-container {
+
+	.owl-item {
+		transition: opacity 0.5s ease;
+		opacity: 0.5;
+
+		.btn.accounts-select {
+			pointer-events: none;
+		}
+
+		&.active {
+			opacity: 1;
+
+			.btn.accounts-select {
+				pointer-events: auto;
+			}
+		}
+	}
+
+	@include respond-to( tablet ) {
+		width: 400px;
+	}
+	@include respond-to( mobile ) {
+		width: 260px;
+	}
+}
+
+
+
+
+// Specific dots
+.owl-carousel.risk-select-container .owl-dots {
+	margin-top: 15px;
+}

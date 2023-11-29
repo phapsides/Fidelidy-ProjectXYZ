@@ -1,0 +1,22 @@
+// We couldn't get the past formance data graph and table seperately from
+// morningstar so have had to use two iframes pointing to the same page
+// positioned differently to show different parts.
+//
+// For the past performance data initially we were using an anchor in the iframe
+// source to scroll the frame down the to the table area. This wasn't working
+// consistently cross browser so instead we wrap the iframe in a container with
+// overflow hidden and shift it up to achieve the same effect.
+//
+// This is a workaround and idealy the graph and table would come back from
+// morningstar separately or in a horizontal format
+.package-table {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+
+    iframe {
+        position: absolute;
+        top: -432px;
+    }
+}
